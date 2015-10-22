@@ -43,6 +43,8 @@ PlayerObj::~PlayerObj()
 
 bool PlayerObj::init()
 {
+    this->preLoadResource();
+    
     return true;
 }
 

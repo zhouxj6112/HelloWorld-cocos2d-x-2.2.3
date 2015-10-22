@@ -80,6 +80,7 @@ public:
     virtual ~PlayerObj();
     //
     virtual bool init();
+    virtual void preLoadResource() {};
     //改变角色状态
     void changeToStatus(PlayerStatus status, int sid=0, int sType=0, PlayerDirection dir=DIRECTION_RIGHT);
     //
