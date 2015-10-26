@@ -14,10 +14,12 @@ USING_NS_CC;
 
 #include "FightLayer.h"
 #include "QuestionLayer.h"
+#include "FightBgLayer.h"
 
 class FightScene : public cocos2d::CCLayer, public QuestionLayerDelegate, public FightLayerDelegate
 {
 private:
+    FightBgLayer* fightBgLayer_;
     FightLayer* fightLayer_;
     QuestionLayer* questionlayer_;
 public:
@@ -26,6 +28,8 @@ public:
     CREATE_FUNC(FightScene);
     virtual void onEnter();
     virtual void onExit();
+    
+    void preLoadResource();
     
     //回调函数
     virtual void answerDelegateCB(QuestionLayer* box, int rightCount, int errorCount);

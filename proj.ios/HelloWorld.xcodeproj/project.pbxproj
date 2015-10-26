@@ -191,6 +191,7 @@
 		2E00812C1A656F1100456B8D /* fight_damage.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 2E00812B1A656F1100456B8D /* fight_damage.fnt */; };
 		2E19AC8B1972D2CF00A73C3E /* role_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E19AC8A1972D2CF00A73C3E /* role_walk.png */; };
 		2E1CA6001A39C6C800909CAD /* BattleResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E1CA5FF1A39C6C800909CAD /* BattleResultLayer.cpp */; };
+		2E1DC5D01BD93B2400E3A050 /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E1DC5CE1BD93B2400E3A050 /* LoadingScene.cpp */; };
 		2E31F29B1A56EB4400AF2EE1 /* Global.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E31F29A1A56EB4400AF2EE1 /* Global.cpp */; };
 		2E31F29F1A56F18500AF2EE1 /* queren.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E31F29D1A56F18500AF2EE1 /* queren.png */; };
 		2E31F2A01A56F18500AF2EE1 /* xiayibu.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E31F29E1A56F18500AF2EE1 /* xiayibu.png */; };
@@ -234,6 +235,7 @@
 		2E6046F11BD4F0F10000F3F1 /* Ready.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E6046EA1BD4F0F10000F3F1 /* Ready.mp3 */; };
 		2E8F9573195F11420030C579 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E8F9568195F11420030C579 /* AppDelegate.cpp */; };
 		2E8F9574195F11420030C579 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E8F956B195F11420030C579 /* HelloWorldScene.cpp */; };
+		2E94633C1BDE315E006911F5 /* FightBgLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E94633A1BDE315E006911F5 /* FightBgLayer.cpp */; };
 		2E9A654D1A04A0CB00A04B22 /* CreateRoleLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9A654C1A04A0CB00A04B22 /* CreateRoleLayer.cpp */; };
 		2E9D83C619FD89FE0015ADC3 /* QuestionObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D83C519FD89FE0015ADC3 /* QuestionObj.cpp */; };
 		2E9D83CB19FD89FE0015ADC3 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D83CA19FD89FE0015ADC3 /* Utils.cpp */; };
@@ -773,6 +775,8 @@
 		2E19AC8A1972D2CF00A73C3E /* role_walk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = role_walk.png; sourceTree = "<group>"; };
 		2E1CA5FE1A39C6A200909CAD /* BattleResultLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BattleResultLayer.h; sourceTree = "<group>"; };
 		2E1CA5FF1A39C6C800909CAD /* BattleResultLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleResultLayer.cpp; sourceTree = "<group>"; };
+		2E1DC5CE1BD93B2400E3A050 /* LoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadingScene.cpp; sourceTree = "<group>"; };
+		2E1DC5CF1BD93B2400E3A050 /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
 		2E31F2991A56EAF600AF2EE1 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		2E31F29A1A56EB4400AF2EE1 /* Global.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Global.cpp; sourceTree = "<group>"; };
 		2E31F29D1A56F18500AF2EE1 /* queren.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = queren.png; sourceTree = "<group>"; };
@@ -820,6 +824,8 @@
 		2E8F956A195F11420030C579 /* AppMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacros.h; path = ../Classes/AppMacros.h; sourceTree = "<group>"; };
 		2E8F956B195F11420030C579 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = ../Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
 		2E8F956C195F11420030C579 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = ../Classes/HelloWorldScene.h; sourceTree = "<group>"; };
+		2E94633A1BDE315E006911F5 /* FightBgLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FightBgLayer.cpp; sourceTree = "<group>"; };
+		2E94633B1BDE315E006911F5 /* FightBgLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FightBgLayer.h; sourceTree = "<group>"; };
 		2E9A654B1A04A0B700A04B22 /* CreateRoleLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateRoleLayer.h; sourceTree = "<group>"; };
 		2E9A654C1A04A0CB00A04B22 /* CreateRoleLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CreateRoleLayer.cpp; sourceTree = "<group>"; };
 		2E9D83C419FD89FE0015ADC3 /* QuestionObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionObj.h; sourceTree = "<group>"; };
@@ -2414,6 +2420,8 @@
 				2E9A654C1A04A0CB00A04B22 /* CreateRoleLayer.cpp */,
 				2E1CA5FE1A39C6A200909CAD /* BattleResultLayer.h */,
 				2E1CA5FF1A39C6C800909CAD /* BattleResultLayer.cpp */,
+				2E94633B1BDE315E006911F5 /* FightBgLayer.h */,
+				2E94633A1BDE315E006911F5 /* FightBgLayer.cpp */,
 			);
 			name = Layer;
 			path = ../Classes/Layer;
@@ -2434,6 +2442,8 @@
 				2ED8B69A19B50AFC00EEE2DC /* FightScene.cpp */,
 				2ED47BF51A03CEA20065D0EE /* CreateScene.h */,
 				2ED47BF61A03CEC50065D0EE /* CreateScene.cpp */,
+				2E1DC5CF1BD93B2400E3A050 /* LoadingScene.h */,
+				2E1DC5CE1BD93B2400E3A050 /* LoadingScene.cpp */,
 			);
 			name = Scene;
 			path = ../Classes/Scene;
@@ -2658,6 +2668,7 @@
 			files = (
 				2EEF03B119ED724300E9E352 /* PlayerObj.cpp in Sources */,
 				15A3D8FF1682F7D5002FB0C5 /* b2BroadPhase.cpp in Sources */,
+				2E1DC5D01BD93B2400E3A050 /* LoadingScene.cpp in Sources */,
 				15A3D9001682F7D5002FB0C5 /* b2CollideCircle.cpp in Sources */,
 				298B29C018D0668400C1920F /* LayoutReader.cpp in Sources */,
 				2E8F9574195F11420030C579 /* HelloWorldScene.cpp in Sources */,
@@ -2784,6 +2795,7 @@
 				15A3DA4A1682F826002FB0C5 /* CCControlButton.cpp in Sources */,
 				15A3DA4B1682F826002FB0C5 /* CCControlColourPicker.cpp in Sources */,
 				298B29BF18D0668400C1920F /* LabelReader.cpp in Sources */,
+				2E94633C1BDE315E006911F5 /* FightBgLayer.cpp in Sources */,
 				15A3DA4C1682F826002FB0C5 /* CCControlHuePicker.cpp in Sources */,
 				375BD50F1868454E0024609E /* CCActionFrame.cpp in Sources */,
 				15A3DA4D1682F826002FB0C5 /* CCControlPotentiometer.cpp in Sources */,

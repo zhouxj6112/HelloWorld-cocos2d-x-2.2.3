@@ -39,6 +39,12 @@ bool FightScene::init()
     float width = size.width;
     float height = size.height*5/12;
     
+    fightBgLayer_ = FightBgLayer::create();
+    fightBgLayer_->setAnchorPoint( ccp(0.5, 0.5) );
+    fightBgLayer_->setPosition( ccp(width/2, size.height-height/2) );
+    fightBgLayer_->setContentSize( CCSizeMake(width, height));
+    this->addChild(fightBgLayer_);
+    
     fightLayer_ = FightLayer::create();
     fightLayer_->setDelegate(this);
     fightLayer_->setAnchorPoint( ccp(0.5, 0.5) );
@@ -82,6 +88,11 @@ bool FightScene::init()
     return true;
 }
 
+void FightScene::preLoadResource()
+{
+
+}
+
 static float speed = 1.0f;
 void FightScene::test1Callback(CCObject* object, void* param)
 {
@@ -100,10 +111,10 @@ void FightScene::onEnter()
 {
     CCLayer::onEnter();
     
-//    /*测试动画帧代码*/
-//    speed = 0.5f;
-//    CCScheduler* pScheduler = CCDirector::sharedDirector()->getScheduler();
-//    pScheduler->setTimeScale(speed);
+    /*测试动画帧代码*/
+    speed = 0.5f;
+    CCScheduler* pScheduler = CCDirector::sharedDirector()->getScheduler();
+    pScheduler->setTimeScale(speed);
 }
 void FightScene::onExit()
 {
@@ -124,7 +135,7 @@ void FightScene::answerDelegateCB(QuestionLayer* box, int rightCount, int errorC
 
 void FightScene::moveVisibleWindow(FightLayer *layer, float deltaX)
 {
-    fightLayer_->setPosition( ccp(fightLayer_->getPositionX()+deltaX, fightLayer_->getPositionY()) );
+    fightBgLayer_->moveBgLayer(deltaX, 0.3f);
 }
 
 void FightScene::fightDidFinished(FightLayer* layer)

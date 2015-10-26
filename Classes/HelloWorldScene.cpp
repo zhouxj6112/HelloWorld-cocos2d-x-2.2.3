@@ -4,6 +4,7 @@
 #include "HomeScene.h"
 #include "CreateScene.h"
 #include "FightScene.h"
+#include "LoadingScene.h"
 
 USING_NS_CC;
 
@@ -121,6 +122,6 @@ void HelloWorld::menuGameLayer(CCObject* pSender)
 
 void HelloWorld::menuFightLayer(CCObject* pSender)
 {
-    CCScene* pScene = FightScene::scene();
+    CCScene* pScene = LoadingScene::scene();
     CCDirector::sharedDirector()->pushScene(pScene);
 }

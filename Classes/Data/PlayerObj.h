@@ -21,6 +21,7 @@ public:
     int atkCount;  //攻击次数
     int atkDamage; //总伤害值
     float moveDistance; //技能攻击前进距离
+    int atkCountEx;//已经攻击的次数
     //实例化
     CSkill(int sid, int damage, int count, float distance=0)
     {
@@ -28,6 +29,7 @@ public:
         atkCount = count;
         atkDamage = damage;
         moveDistance = distance;
+        atkCountEx = 0;
     }
 };
 

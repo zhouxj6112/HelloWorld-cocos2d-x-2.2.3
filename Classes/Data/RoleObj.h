@@ -28,6 +28,7 @@ private:
     void hurtActionDidFinished(CCObject* object, void* param);
     void deadActionDidFinished(CCObject* object, void* param);
     //
+    void behitDidFinished(CCObject* object, void* param);
 public:
     void hiddenHealthBar();
 };

@@ -230,8 +230,8 @@ void RoleObj::preLoadResource()
     }
     pAnimation = CCAnimationCache::sharedAnimationCache()->animationByName("hero_atk_j");
     if (pAnimation == NULL) {
-        int iKeyFrame1 = 4;
-        int iKeyFrame2 = 6;
+        int iKeyFrame1 = 2;
+        int iKeyFrame2 = 5;
         pAnimation = CCAnimation::create();
         for (int i=1; i<=8; i++)
         {
@@ -247,6 +247,24 @@ void RoleObj::preLoadResource()
         pAnimation->setDelayPerUnit(0.1f);    // 必须设置这个，要不就不会播放
         pAnimation->setLoops(1);
         CCAnimationCache::sharedAnimationCache()->addAnimation(pAnimation, "hero_atk_j");
+    }
+    pAnimation = CCAnimationCache::sharedAnimationCache()->animationByName("hero_behit_1");
+    if (pAnimation == NULL) {
+        pAnimation = CCAnimation::create();
+        for (int i=1; i<=5; i++)
+        {
+            CCString* pFileName = CCString::createWithFormat("behit/n%04d.png", 1);
+            pAnimation->addSpriteFrameWithFileName(pFileName->getCString());
+        } //补偿动画
+        for (int i=0; i<=6; i++)
+        {
+            CCString* pFileName = CCString::createWithFormat("behit/r%04d.png", i);
+            pAnimation->addSpriteFrameWithFileName(pFileName->getCString());
+        }
+        pAnimation->setRestoreOriginalFrame(true);
+        pAnimation->setDelayPerUnit(0.1f);    // 必须设置这个，要不就不会播放
+        pAnimation->setLoops(1);
+        CCAnimationCache::sharedAnimationCache()->addAnimation(pAnimation, "hero_behit_1");
     }
 }
 
@@ -611,11 +629,11 @@ void RoleObj::attack(int sid, int sType)
     else if (sType == 9) //攻击技能10
     {
         CCLog("postionX:%f", playerSpr->getPositionX());
-        playerSpr->setPosition( ccp(playerSpr->getPositionX()+80, playerSpr->getPositionY()) );
-        curPos.x += 80;
+        playerSpr->setPosition( ccp(playerSpr->getPositionX()+160, playerSpr->getPositionY()) );
+        curPos.x += 160;
         
-        int iKeyFrame1 = 4;
-        int iKeyFrame2 = 6;
+        int iKeyFrame1 = 2;
+        int iKeyFrame2 = 5;
         
         CCAnimation* pAnimation = CCAnimationCache::sharedAnimationCache()->animationByName("hero_atk_j");
         if (pAnimation == NULL) {
@@ -646,11 +664,12 @@ void RoleObj::attack(int sid, int sType)
         }
         
         //通知被攻击者受到攻击
-        CCDelayTime* pDelay1 = CCDelayTime::create(0.1f*iKeyFrame1);
-        CCDelayTime* pDelay2 = CCDelayTime::create(0.1f*iKeyFrame2+0.1f*2);
         CSkill* skill = new CSkill(sType+1, 200, 2, 80);
-        CCAction* pAction = CCCallFuncND::create(this, callfuncND_selector(PlayerObj::attackAction), (void *)skill);
-        playerSpr->runAction(CCSequence::create(pDelay1, pAction, pDelay2, pAction, NULL));
+        CCDelayTime* pDelay1 = CCDelayTime::create(0.1f*iKeyFrame1);
+        CCAction* pAction1 = CCCallFuncND::create(this, callfuncND_selector(PlayerObj::attackAction), (void *)skill);
+        CCDelayTime* pDelay2 = CCDelayTime::create(0.1f*iKeyFrame2+0.1f*2);
+        CCAction* pAction2 = CCCallFuncND::create(this, callfuncND_selector(PlayerObj::attackAction), (void *)skill);
+        playerSpr->runAction(CCSequence::create(pDelay1, pAction1, pDelay2, pAction2, NULL));
     }
 }
 
@@ -659,9 +678,15 @@ void RoleObj::beHit(int sid, int damage)
     float hurt = damage;
     
     curHealth -= hurt;
+    if (curDir == DIRECTION_LEFT) {
+        healthProgressTimer->setMidpoint( ccp(1, 1) );
+    } else {
+        healthProgressTimer->setMidpoint( ccp(0, 1) );
+    }
+    //减血动画
     CCProgressFromTo* fromTo = CCProgressFromTo::create(0.5f, (curHealth+hurt)*1.0f/totalHealth*100, curHealth*1.0f/totalHealth*100);
     healthProgressTimer->runAction(fromTo);
-
+    
     CCString* str = CCString::createWithFormat("-%d", (int)hurt);
     CCLabelBMFont* pLabel = CCLabelBMFont::create(str->getCString(), "fight_damage.fnt");
     pLabel->setAnchorPoint(ccp(0.5, 0.5));
@@ -697,7 +722,12 @@ void RoleObj::beHit(int sid, int damage)
         CCAnimation* pAnimation = CCAnimationCache::sharedAnimationCache()->animationByName("hero_behit_1");
         if (pAnimation == NULL) {
             pAnimation = CCAnimation::create();
-            for (int i=1; i<=8; i++)
+            for (int i=1; i<=5; i++)
+            {
+                CCString* pFileName = CCString::createWithFormat("behit/n%04d.png", 1);
+                pAnimation->addSpriteFrameWithFileName(pFileName->getCString());
+            } //补偿动画
+            for (int i=0; i<=6; i++)
             {
                 CCString* pFileName = CCString::createWithFormat("behit/r%04d.png", i);
                 pAnimation->addSpriteFrameWithFileName(pFileName->getCString());
@@ -708,14 +738,34 @@ void RoleObj::beHit(int sid, int damage)
             CCAnimationCache::sharedAnimationCache()->addAnimation(pAnimation, "hero_behit_1");
         }
         CCAnimate* pAnimate = CCAnimate::create(pAnimation);
-        CCAction* pAct = CCCallFuncND::create(this, callfuncND_selector(RoleObj::didAction), NULL);
+        CCAction* pAct = CCCallFuncND::create(this, callfuncND_selector(RoleObj::behitDidFinished), NULL);
         playerSpr->runAction(CCSequence::create(pAnimate, pAct, NULL));
         
         {
-            CCJumpBy* jumpBy = CCJumpBy::create(0.1f*pAnimation->getFrames()->count(), ccp(80, 0), 40, 1);
+            CCJumpBy* jumpBy = CCJumpBy::create(0.1f*pAnimation->getFrames()->count(), ccp(80, 0), 80, 1);
             playerSpr->runAction(jumpBy);
         }
     }
+}
+
+void RoleObj::behitDidFinished(cocos2d::CCObject *object, void *param)
+{
+    CCAnimation* pAnimation = CCAnimationCache::sharedAnimationCache()->animationByName("hero_behit_wait");
+    if (pAnimation == NULL) {
+        pAnimation = CCAnimation::create();
+        for (int i=2; i<=8; i++)
+        {
+            CCString* pFileName = CCString::createWithFormat("dead/s%04d.png", 4);
+            pAnimation->addSpriteFrameWithFileName(pFileName->getCString());
+        }
+        pAnimation->setRestoreOriginalFrame(true);
+        pAnimation->setDelayPerUnit(0.1f);    // 必须设置这个，要不就不会播放
+        pAnimation->setLoops(1);
+        CCAnimationCache::sharedAnimationCache()->addAnimation(pAnimation, "hero_behit_wait");
+    }
+    CCAnimate* pAnimate = CCAnimate::create(pAnimation);
+    CCAction* pAct = CCCallFuncND::create(this, callfuncND_selector(RoleObj::didAction), NULL);
+    playerSpr->runAction(CCSequence::create(pAnimate, pAct, NULL));
 }
 
 void RoleObj::dead(int sid)

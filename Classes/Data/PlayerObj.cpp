@@ -78,9 +78,9 @@ void PlayerObj::changeToStatus(PlayerStatus status, int sid, int sType, PlayerDi
 void PlayerObj::setPosition(float x, float y)
 {
     curPos = ccp(x, y);
-    if (healthBgSpr) {
-        healthBgSpr->setPosition( ccp(x, y-100) );
-    }
+//    if (healthBgSpr) {
+//        healthBgSpr->setPosition( ccp(x, y-100) );
+//    }
     if (playerSpr) {
         playerSpr->setPosition( ccp(x, y) );
     }
