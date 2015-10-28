@@ -16,7 +16,6 @@ class BossObj : public PlayerObj
 public:
     BossObj(CCLayer* superLayer);
     virtual bool init();
-    virtual void preLoadResource();
 public:
     virtual void stand();
     virtual void run(int distance);

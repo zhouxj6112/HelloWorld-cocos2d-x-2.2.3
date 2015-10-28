@@ -8,6 +8,7 @@
 
 #include "LoadingScene.h"
 #include "FightScene.h"
+#include "AnimationManager.h"
 
 USING_NS_CC;
 
@@ -43,6 +44,8 @@ bool LoadingScene::init()
 
 void LoadingScene::didAction(cocos2d::CCObject* object, void* param)
 {
+    AnimationManager::shareInstance()->preLoadAnimations();
+    //
     CCScene* pScene = FightScene::scene();
     CCDirector::sharedDirector()->replaceScene(pScene);
 }

@@ -16,7 +16,6 @@ class RoleObj : public PlayerObj
 public:
     RoleObj(CCLayer* superLayer);
     virtual bool init();
-    virtual void preLoadResource();
 public:
     virtual void stand(int sid);
     virtual void run(int sid, int distance);

@@ -10,6 +10,7 @@
 #include "BattleResultLayer.h"
 #include "RoleObj.h"
 #include "GameSoundManager.h"
+#include "AnimationManager.h"
 
 bool FightLayer::init()
 {
@@ -95,7 +96,6 @@ void FightLayer::runActionDidFinished(CCObject* object, void* param)
     atkNumber->setVisible(true);
     atkNumber->setString(CCString::createWithFormat("%d", role_attack_count-roleAttackCount+1)->getCString(), true);
     _role->changeToStatus(STATUS_ATTACK, 0, role_attack_count-roleAttackCount);
-//    this->playFightBgAnimation();
 }
 
 void FightLayer::attackActionDidFinished(CCObject* object, void* param)
@@ -311,23 +311,19 @@ void FightLayer::attackCollision(PlayerObj *obj, CSkill* skill)
     }
 }
 
+void FightLayer::actionWillStart(PlayerObj *obj, PlayerStatus status, int sid)
+{
+    CCLOG("%d", sid);
+    if (status==STATUS_ATTACK && sid==10) {
+        this->playFightBgAnimation();
+    }
+}
+
 void FightLayer::playKOAnimation()
 {
     atkNumber->setVisible(false);
     
-    CCAnimation* pAnimation = CCAnimationCache::sharedAnimationCache()->animationByName("atk_ko");
-    if (pAnimation == NULL) {
-        pAnimation = CCAnimation::create();
-        for (int i=1; i<30; i++)
-        {
-            CCString* pFileName = CCString::createWithFormat("3%03d.png", i);
-            pAnimation->addSpriteFrameWithFileName(pFileName->getCString());
-        }
-        pAnimation->setRestoreOriginalFrame(true);
-        pAnimation->setDelayPerUnit(0.1f);    // 必须设置这个，要不就不会播放
-        pAnimation->setLoops(1);
-        CCAnimationCache::sharedAnimationCache()->addAnimation(pAnimation, "atk_ko");
-    }
+    CCAnimation* pAnimation = AnimationManager::shareInstance()->getAnimationWithName(str_atk_ko);
     CCAnimate* pAnimate = CCAnimate::create(pAnimation);
     CCAction* pAct = CCCallFuncND::create(this, callfuncND_selector(FightLayer::koDidFinished), NULL);
     CCSprite* spr = CCSprite::create("3001.png");
@@ -344,19 +340,7 @@ void FightLayer::koDidFinished(cocos2d::CCObject *object, void *param)
 
 void FightLayer::playFightBgAnimation()
 {
-    CCAnimation* pAnimation = CCAnimationCache::sharedAnimationCache()->animationByName("atk_bg");
-    if (pAnimation == NULL) {
-        pAnimation = CCAnimation::create();
-        for (int i=1; i<=3; i++)
-        {
-            CCString* pFileName = CCString::createWithFormat("1%03d.png", i);
-            pAnimation->addSpriteFrameWithFileName(pFileName->getCString());
-        }
-        pAnimation->setRestoreOriginalFrame(true);
-        pAnimation->setDelayPerUnit(0.1f);    // 必须设置这个，要不就不会播放
-        pAnimation->setLoops(1);
-        CCAnimationCache::sharedAnimationCache()->addAnimation(pAnimation, "atk_bg");
-    }
+    CCAnimation* pAnimation = AnimationManager::shareInstance()->getAnimationWithName(str_atk_bg);
     //
     CCSprite* spr = (CCSprite *)(this->getChildByTag(1234));
     if (spr == NULL) {

@@ -298,6 +298,7 @@
 		2EE89A8919EEC6EF00AE4D60 /* RoleObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EE89A8819EEC6EF00AE4D60 /* RoleObj.cpp */; };
 		2EE89A8C19EEC84200AE4D60 /* BossObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EE89A8B19EEC84200AE4D60 /* BossObj.cpp */; };
 		2EEF03B119ED724300E9E352 /* PlayerObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF03B019ED724300E9E352 /* PlayerObj.cpp */; };
+		2EEF537B1BE0C80400C4D95C /* AnimationManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF53791BE0C80400C4D95C /* AnimationManager.cpp */; };
 		375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BB1868411B0024609E /* ObjectFactory.cpp */; };
 		375BD4C41868411B0024609E /* TriggerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BD1868411B0024609E /* TriggerBase.cpp */; };
 		375BD4C51868411B0024609E /* TriggerMng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BF1868411B0024609E /* TriggerMng.cpp */; };
@@ -929,6 +930,8 @@
 		2EE89A8B19EEC84200AE4D60 /* BossObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BossObj.cpp; sourceTree = "<group>"; };
 		2EEF03AF19ED721C00E9E352 /* PlayerObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerObj.h; sourceTree = "<group>"; };
 		2EEF03B019ED724300E9E352 /* PlayerObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerObj.cpp; sourceTree = "<group>"; };
+		2EEF53791BE0C80400C4D95C /* AnimationManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimationManager.cpp; sourceTree = "<group>"; };
+		2EEF537A1BE0C80400C4D95C /* AnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationManager.h; sourceTree = "<group>"; };
 		373B911F18788FB000198F86 /* CCComBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCComBase.h; sourceTree = "<group>"; };
 		375BD4BB1868411B0024609E /* ObjectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectFactory.cpp; sourceTree = "<group>"; };
 		375BD4BC1868411B0024609E /* ObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectFactory.h; sourceTree = "<group>"; };
@@ -2063,6 +2066,8 @@
 				2E9D83CA19FD89FE0015ADC3 /* Utils.cpp */,
 				2E31F2991A56EAF600AF2EE1 /* Global.h */,
 				2E31F29A1A56EB4400AF2EE1 /* Global.cpp */,
+				2EEF537A1BE0C80400C4D95C /* AnimationManager.h */,
+				2EEF53791BE0C80400C4D95C /* AnimationManager.cpp */,
 			);
 			name = Data;
 			path = ../Classes/Data;
@@ -2898,6 +2903,7 @@
 				15A3D9B21682F7F9002FB0C5 /* cpVect.c in Sources */,
 				15A3DA311682F826002FB0C5 /* CCBAnimationManager.cpp in Sources */,
 				15A3DA321682F826002FB0C5 /* CCBFileLoader.cpp in Sources */,
+				2EEF537B1BE0C80400C4D95C /* AnimationManager.cpp in Sources */,
 				15A3DA331682F826002FB0C5 /* CCBKeyframe.cpp in Sources */,
 				15A3DA341682F826002FB0C5 /* CCBReader.cpp in Sources */,
 				15A3DA351682F826002FB0C5 /* CCBSequence.cpp in Sources */,

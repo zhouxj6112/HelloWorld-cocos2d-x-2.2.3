@@ -43,8 +43,6 @@ PlayerObj::~PlayerObj()
 
 bool PlayerObj::init()
 {
-    this->preLoadResource();
-    
     return true;
 }
 
@@ -59,6 +57,9 @@ void PlayerObj::changeToStatus(PlayerStatus status, int sid, int sType, PlayerDi
         playerSpr->stopAllActions();
     }
     curDir = dir;
+    if (mDelegate) {
+        mDelegate->actionWillStart(this, status, sid);
+    }
     if (status == STATUS_STAND) {
         this->stand(sid);
     } else if (status == STATUS_RUN) {

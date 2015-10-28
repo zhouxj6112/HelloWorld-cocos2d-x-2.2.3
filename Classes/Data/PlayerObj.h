@@ -56,6 +56,7 @@ class CC_DLL IPlayerObj
 public:
     virtual void actionFrameDidFinished(PlayerObj* obj, PlayerStatus status) = 0;
     virtual void attackCollision(PlayerObj* obj, CSkill* skill) = 0;
+    virtual void actionWillStart(PlayerObj* obj, PlayerStatus status, int sid) = 0;
 };
 
 #define animation_delay_perUnit 0.05f
@@ -82,7 +83,6 @@ public:
     virtual ~PlayerObj();
     //
     virtual bool init();
-    virtual void preLoadResource() {};
     //改变角色状态
     void changeToStatus(PlayerStatus status, int sid=0, int sType=0, PlayerDirection dir=DIRECTION_RIGHT);
     //

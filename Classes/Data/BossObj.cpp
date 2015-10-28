@@ -34,10 +34,6 @@ bool BossObj::init()
     return true;
 }
 
-void BossObj::preLoadResource()
-{
-}
-
 void BossObj::stand()
 {
 //    CCAnimation* pAnimation = CCAnimation::create();
