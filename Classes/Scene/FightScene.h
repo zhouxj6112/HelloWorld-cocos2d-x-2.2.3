@@ -40,7 +40,7 @@ public:
     //
     virtual void fightDidFinished(FightLayer* layer);
     virtual void battleOver(FightLayer* layer, bool isWin);
-    virtual void moveVisibleWindow(FightLayer* layer, float deltaX);
+    virtual void moveVisibleWindow(FightLayer* layer, float deltaX, float time);
 private:
     int rightCount_;
     int errorCount_;

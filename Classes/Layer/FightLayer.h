@@ -23,7 +23,7 @@ public:
     //回调函数
     virtual void fightDidFinished(FightLayer* layer) = 0;
     virtual void battleOver(FightLayer* layer, bool isWin) = 0;
-    virtual void moveVisibleWindow(FightLayer* layer, float deltaX) = 0;
+    virtual void moveVisibleWindow(FightLayer* layer, float deltaX, float time) = 0;
 };
 
 class FightLayer : public CCLayer, public IPlayerObj
@@ -65,6 +65,12 @@ private:
     int bossAttackCount;
     //剩余攻击次数展示图层
     CCLabelBMFont* atkNumber;
+    
+    void playKOAnimation();
+    void playFightBgAnimation();
+    void stopFightBgAnimation();
+    
+    void koDidFinished(CCObject* object, void* param);
 };
 
 #endif

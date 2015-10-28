@@ -51,14 +51,6 @@ bool FightScene::init()
     fightLayer_->setPosition( ccp(width/2, size.height-height/2) );
     fightLayer_->setContentSize( CCSizeMake(width, height));
     this->addChild(fightLayer_);
-    {
-        fightLayer_->_role->healthBgSpr->removeFromParentAndCleanup(false);
-        fightLayer_->_role->healthBgSpr->setPosition( ccp(80, size.height-22) );
-        this->addChild(fightLayer_->_role->healthBgSpr);
-        fightLayer_->_boss->healthBgSpr->removeFromParentAndCleanup(false);
-        fightLayer_->_boss->healthBgSpr->setPosition( ccp(size.width-80, size.height-22) );
-        this->addChild(fightLayer_->_boss->healthBgSpr);
-    }
     
     width = width;
     height = size.height-height;
@@ -111,10 +103,10 @@ void FightScene::onEnter()
 {
     CCLayer::onEnter();
     
-    /*测试动画帧代码*/
-    speed = 0.5f;
-    CCScheduler* pScheduler = CCDirector::sharedDirector()->getScheduler();
-    pScheduler->setTimeScale(speed);
+//    /*测试动画帧代码*/
+//    speed = 0.5f;
+//    CCScheduler* pScheduler = CCDirector::sharedDirector()->getScheduler();
+//    pScheduler->setTimeScale(speed);
 }
 void FightScene::onExit()
 {
@@ -133,9 +125,11 @@ void FightScene::answerDelegateCB(QuestionLayer* box, int rightCount, int errorC
     fightLayer_->attackProcedure(rightCount, errorCount);
 }
 
-void FightScene::moveVisibleWindow(FightLayer *layer, float deltaX)
+void FightScene::moveVisibleWindow(FightLayer *layer, float deltaX, float time)
 {
-    fightBgLayer_->moveBgLayer(deltaX, 0.3f);
+    if (deltaX != 0) {
+        fightBgLayer_->moveBgLayer(deltaX, time);
+    }
 }
 
 void FightScene::fightDidFinished(FightLayer* layer)

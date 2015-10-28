@@ -32,6 +32,10 @@ bool FightLayer::init()
 //    _boss->setDelegate(this);
     _boss->setPosition(size.width/2-150, -80);
     _boss->changeToStatus(STATUS_STAND, 0, 0, DIRECTION_LEFT);
+    {
+        _role->healthBgSpr->setPosition( ccp(-size.width/2+90, 180) );
+        _boss->healthBgSpr->setPosition( ccp(size.width/2-90, 180) );
+    }
     
     atkNumber = CCLabelBMFont::create("0", "fight_damage.fnt");
     this->addChild(atkNumber);
@@ -91,6 +95,7 @@ void FightLayer::runActionDidFinished(CCObject* object, void* param)
     atkNumber->setVisible(true);
     atkNumber->setString(CCString::createWithFormat("%d", role_attack_count-roleAttackCount+1)->getCString(), true);
     _role->changeToStatus(STATUS_ATTACK, 0, role_attack_count-roleAttackCount);
+//    this->playFightBgAnimation();
 }
 
 void FightLayer::attackActionDidFinished(CCObject* object, void* param)
@@ -110,6 +115,10 @@ void FightLayer::attackActionDidFinished(CCObject* object, void* param)
         _role->playerSpr->runAction(CCSequence::create(pMove, pStop, NULL));
         //
         _boss->changeToStatus(STATUS_DEATH);
+        
+        //同时播放KO动画
+        this->playKOAnimation();
+        
     } else {
         CCLOG("BOSS还没挂");
         
@@ -127,6 +136,8 @@ void FightLayer::attackActionDidFinished(CCObject* object, void* param)
             CCDelayTime* pDelay = CCDelayTime::create(1.0f);
             CCAction* pStop = CCCallFuncND::create(this, callfuncND_selector(FightLayer::actionDidFinished), NULL);
             _role->playerSpr->runAction(CCSequence::create(pMove, pDelay, pStop, NULL));
+            
+            this->stopFightBgAnimation();
         }
     }
 }
@@ -153,8 +164,7 @@ void FightLayer::attackBackProcedure(cocos2d::CCObject *object, void *param)
     //开始BOSS反击
     if (bossAttackCount > 0) { //BOSS有反击的机会
         //
-         float f = _boss->curPos.x-(_role->curPos.x);
-        _boss->changeToStatus(STATUS_RUN, 0, -f, DIRECTION_LEFT);
+        _boss->changeToStatus(STATUS_RUN, 0, -200, DIRECTION_LEFT);
         
     } else {                   //BOSS没有反击机会
         if (_role->curHealth > 0) {
@@ -268,22 +278,16 @@ void FightLayer::attackCollision(PlayerObj *obj, CSkill* skill)
     if (obj->isEqual(_role)) {
         if (skill->sid==8 || skill->sid==9) {
             CCLog("boss postionX:%f", _boss->getRotationX());
-
-            _boss->setPosition(_boss->curPos.x+skill->moveDistance, _boss->curPos.y);
-            atkNumber->setPosition( ccp(atkNumber->getPositionX()+skill->moveDistance, atkNumber->getPositionY()) );
             
             if (mDelegate != NULL) {
-                mDelegate->moveVisibleWindow(this, -(skill->moveDistance));
+                mDelegate->moveVisibleWindow(this, -(skill->moveDistance), 0);
             }
         } else if (skill->sid == 10) {
             if (role_attack_count>=5 && roleAttackCount==1) {
                 if (skill->atkCountEx == 0) {
                     if (mDelegate != NULL) {
-                        mDelegate->moveVisibleWindow(this, -(skill->moveDistance));
+                        mDelegate->moveVisibleWindow(this, -(skill->moveDistance), 1.2f);
                     }
-//                    //
-//                    _boss->setPosition(_boss->curPos.x+skill->moveDistance, _boss->curPos.y);
-//                    atkNumber->setPosition( ccp(atkNumber->getPositionX()+skill->moveDistance, atkNumber->getPositionY()) );
                 }
             }
             CCLog("skill 10: %f", skill->moveDistance);
@@ -304,5 +308,77 @@ void FightLayer::attackCollision(PlayerObj *obj, CSkill* skill)
     } else if (obj->isEqual(_boss)) {
         int damage = skill->atkDamage/skill->atkCount;
         _role->changeToStatus(STATUS_BEHIT, 0, damage, DIRECTION_RIGHT);
+    }
+}
+
+void FightLayer::playKOAnimation()
+{
+    atkNumber->setVisible(false);
+    
+    CCAnimation* pAnimation = CCAnimationCache::sharedAnimationCache()->animationByName("atk_ko");
+    if (pAnimation == NULL) {
+        pAnimation = CCAnimation::create();
+        for (int i=1; i<30; i++)
+        {
+            CCString* pFileName = CCString::createWithFormat("3%03d.png", i);
+            pAnimation->addSpriteFrameWithFileName(pFileName->getCString());
+        }
+        pAnimation->setRestoreOriginalFrame(true);
+        pAnimation->setDelayPerUnit(0.1f);    // 必须设置这个，要不就不会播放
+        pAnimation->setLoops(1);
+        CCAnimationCache::sharedAnimationCache()->addAnimation(pAnimation, "atk_ko");
+    }
+    CCAnimate* pAnimate = CCAnimate::create(pAnimation);
+    CCAction* pAct = CCCallFuncND::create(this, callfuncND_selector(FightLayer::koDidFinished), NULL);
+    CCSprite* spr = CCSprite::create("3001.png");
+    spr->setAnchorPoint( ccp(0.5f, 0.5f) );
+    spr->setPosition( ccp(0, 0) );
+    this->addChild(spr);
+    spr->runAction(CCSequence::create(pAnimate, pAct, NULL));
+}
+
+void FightLayer::koDidFinished(cocos2d::CCObject *object, void *param)
+{
+    ((CCSprite *)object)->removeFromParent();
+}
+
+void FightLayer::playFightBgAnimation()
+{
+    CCAnimation* pAnimation = CCAnimationCache::sharedAnimationCache()->animationByName("atk_bg");
+    if (pAnimation == NULL) {
+        pAnimation = CCAnimation::create();
+        for (int i=1; i<=3; i++)
+        {
+            CCString* pFileName = CCString::createWithFormat("1%03d.png", i);
+            pAnimation->addSpriteFrameWithFileName(pFileName->getCString());
+        }
+        pAnimation->setRestoreOriginalFrame(true);
+        pAnimation->setDelayPerUnit(0.1f);    // 必须设置这个，要不就不会播放
+        pAnimation->setLoops(1);
+        CCAnimationCache::sharedAnimationCache()->addAnimation(pAnimation, "atk_bg");
+    }
+    //
+    CCSprite* spr = (CCSprite *)(this->getChildByTag(1234));
+    if (spr == NULL) {
+        CCSprite* spr = CCSprite::create("1001.png");
+        spr->setAnchorPoint( ccp(0.5f, 0.5f) );
+        spr->setPosition( ccp(0, 0) );
+        spr->cocos2d::CCNode::setScale(this->getContentSize().width/spr->getContentSize().width, this->getContentSize().height/spr->getContentSize().height);
+        this->addChild(spr, -1, 1234);
+        
+        CCAnimate* pAnimate = CCAnimate::create(pAnimation);
+        CCAction* repeatAction = CCRepeatForever::create(pAnimate);
+        spr->runAction(repeatAction);
+        CCLOG("%p", spr);
+    }
+}
+
+void FightLayer::stopFightBgAnimation()
+{
+    CCSprite* spr = (CCSprite *)(this->getChildByTag(1234));
+    if (spr) {
+        spr->stopAllActions();
+        spr->removeFromParent();
+        CCLOG("%p", spr);
     }
 }

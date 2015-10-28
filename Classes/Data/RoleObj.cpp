@@ -593,8 +593,8 @@ void RoleObj::attack(int sid, int sType)
     else if (sType == 8)  //攻击技能9
     {
         CCLog("postionX:%f", playerSpr->getPositionX());
-        playerSpr->setPosition( ccp(playerSpr->getPositionX()+80, playerSpr->getPositionY()) );
-        curPos.x += 80;
+//        playerSpr->setPosition( ccp(playerSpr->getPositionX()+80, playerSpr->getPositionY()) );
+//        curPos.x += 80;
         
         int iKeyFrame = 4;
         
@@ -629,8 +629,8 @@ void RoleObj::attack(int sid, int sType)
     else if (sType == 9) //攻击技能10
     {
         CCLog("postionX:%f", playerSpr->getPositionX());
-        playerSpr->setPosition( ccp(playerSpr->getPositionX()+160, playerSpr->getPositionY()) );
-        curPos.x += 160;
+//        playerSpr->setPosition( ccp(playerSpr->getPositionX()+160, playerSpr->getPositionY()) );
+//        curPos.x += 160;
         
         int iKeyFrame1 = 2;
         int iKeyFrame2 = 5;
@@ -659,7 +659,7 @@ void RoleObj::attack(int sid, int sType)
         
         //抛物线攻击轨迹
         {
-            CCJumpBy* jumpBy = CCJumpBy::create(0.1f*pAnimation->getFrames()->count(), ccp(80, 0), 40, 1);
+            CCJumpBy* jumpBy = CCJumpBy::create(0.1f*pAnimation->getFrames()->count(), ccp(0, 0), 40, 1);
             playerSpr->runAction(jumpBy);
         }
         
@@ -742,7 +742,7 @@ void RoleObj::beHit(int sid, int damage)
         playerSpr->runAction(CCSequence::create(pAnimate, pAct, NULL));
         
         {
-            CCJumpBy* jumpBy = CCJumpBy::create(0.1f*pAnimation->getFrames()->count(), ccp(80, 0), 80, 1);
+            CCJumpBy* jumpBy = CCJumpBy::create(0.1f*pAnimation->getFrames()->count(), ccp(0, 0), 60, 1);
             playerSpr->runAction(jumpBy);
         }
     }
