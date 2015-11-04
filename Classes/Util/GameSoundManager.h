@@ -16,9 +16,11 @@ public:
     void preLoad();
     void playFightBackgroundMusic();
     void playAttackEffect(bool isHeavy);
-    void playOverEffect();
+    void playKOEffect();
     void playReadyEffect();
     void playGoEffect();
+    void playWinEffect();
+    void playReadyGoEffect();
 private:
     GameSoundManager();
     virtual ~GameSoundManager();

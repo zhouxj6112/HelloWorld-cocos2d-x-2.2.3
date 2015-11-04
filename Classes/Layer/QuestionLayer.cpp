@@ -8,6 +8,7 @@
 
 #include "QuestionLayer.h"
 #include "Utils.h"
+#include "GameSoundManager.h"
 
 USING_NS_CC;
 
@@ -75,6 +76,8 @@ bool QuestionLayer::init()
     CCScaleTo* scaleTo = CCScaleTo::create(1.0f, 2.0f);
     CCAction* pAction = CCCallFuncND::create(this, callfuncND_selector(QuestionLayer::start), NULL);
     ttf->runAction(CCSequence::create(scaleTo, pAction, NULL));
+    
+    GameSoundManager::shareManager()->playReadyGoEffect();
     
     isAnswerFinished = false;
     

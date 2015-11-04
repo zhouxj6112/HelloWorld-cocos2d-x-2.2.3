@@ -45,7 +45,7 @@ void GameSoundManager::playAttackEffect(bool isHeavy)
     }
 }
 
-void GameSoundManager::playOverEffect()
+void GameSoundManager::playKOEffect()
 {
     CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("KO.mp3");
 }
@@ -58,4 +58,14 @@ void GameSoundManager::playReadyEffect()
 void GameSoundManager::playGoEffect()
 {
     CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("GO.mp3");
+}
+
+void GameSoundManager::playWinEffect()
+{
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("欢呼.mp3");
+}
+
+void GameSoundManager::playReadyGoEffect()
+{
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("ready_go.mp3");
 }

@@ -331,6 +331,8 @@ void FightLayer::playKOAnimation()
     spr->setPosition( ccp(0, 0) );
     this->addChild(spr);
     spr->runAction(CCSequence::create(pAnimate, pAct, NULL));
+    
+    GameSoundManager::shareManager()->playKOEffect();
 }
 
 void FightLayer::koDidFinished(cocos2d::CCObject *object, void *param)

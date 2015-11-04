@@ -180,6 +180,10 @@ void FightScene::battleOver(FightLayer* layer, bool isWin)
     CCAction* pStop = CCCallFuncND::create(this, callfuncND_selector(FightScene::fightOverCallback), (void *)&isWin);
     label->runAction(CCSequence::create(pScale, pDelay, pStop, NULL));
     _isWin = isWin;
+    
+    if (isWin) {
+        GameSoundManager::shareManager()->playWinEffect();
+    }
 }
 
 void FightScene::fightOverCallback(CCObject *object, void *param)

@@ -215,6 +215,10 @@
 		2E4EA06D1A063094003A29A5 /* huodong.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E4EA06B1A063094003A29A5 /* huodong.png */; };
 		2E4EA0701A06309E003A29A5 /* shangcheng.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E4EA06E1A06309E003A29A5 /* shangcheng.png */; };
 		2E4EA0711A06309E003A29A5 /* zhuye.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E4EA06F1A06309E003A29A5 /* zhuye.png */; };
+		2E4F67641BE117370087F50C /* 回答错误.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F67601BE117370087F50C /* 回答错误.mp3 */; };
+		2E4F67651BE117370087F50C /* 正确回答.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F67611BE117370087F50C /* 正确回答.mp3 */; };
+		2E4F67661BE117370087F50C /* cool.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F67621BE117370087F50C /* cool.mp3 */; };
+		2E4F67671BE117370087F50C /* ready_go.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F67631BE117370087F50C /* ready_go.mp3 */; };
 		2E4F6DC81A05211C00386649 /* edit_name.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F6DC71A05211C00386649 /* edit_name.png */; };
 		2E5073ED1AB07C7D00C9AB32 /* run in Resources */ = {isa = PBXBuildFile; fileRef = 2E5073EA1AB07C7D00C9AB32 /* run */; };
 		2E5073EE1AB07C7D00C9AB32 /* vertigo in Resources */ = {isa = PBXBuildFile; fileRef = 2E5073EB1AB07C7D00C9AB32 /* vertigo */; };
@@ -834,6 +838,10 @@
 		2E4EA06B1A063094003A29A5 /* huodong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = huodong.png; sourceTree = "<group>"; };
 		2E4EA06E1A06309E003A29A5 /* shangcheng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shangcheng.png; sourceTree = "<group>"; };
 		2E4EA06F1A06309E003A29A5 /* zhuye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhuye.png; sourceTree = "<group>"; };
+		2E4F67601BE117370087F50C /* 回答错误.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "回答错误.mp3"; sourceTree = "<group>"; };
+		2E4F67611BE117370087F50C /* 正确回答.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "正确回答.mp3"; sourceTree = "<group>"; };
+		2E4F67621BE117370087F50C /* cool.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cool.mp3; sourceTree = "<group>"; };
+		2E4F67631BE117370087F50C /* ready_go.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ready_go.mp3; sourceTree = "<group>"; };
 		2E4F6DC71A05211C00386649 /* edit_name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit_name.png; sourceTree = "<group>"; };
 		2E5073EA1AB07C7D00C9AB32 /* run */ = {isa = PBXFileReference; lastKnownFileType = folder; path = run; sourceTree = "<group>"; };
 		2E5073EB1AB07C7D00C9AB32 /* vertigo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vertigo; sourceTree = "<group>"; };
@@ -2040,6 +2048,10 @@
 		2EED96AA1A597E3300FAE358 /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				2E4F67601BE117370087F50C /* 回答错误.mp3 */,
+				2E4F67611BE117370087F50C /* 正确回答.mp3 */,
+				2E4F67621BE117370087F50C /* cool.mp3 */,
+				2E4F67631BE117370087F50C /* ready_go.mp3 */,
 				2E6046E41BD4F0F10000F3F1 /* 欢呼.mp3 */,
 				2E6046E51BD4F0F10000F3F1 /* 普通攻击.mp3 */,
 				2E6046E61BD4F0F10000F3F1 /* 重击.mp3 */,
@@ -2661,6 +2673,7 @@
 				2EB248131BDF7A870021C568 /* 3022.png in Resources */,
 				C12B4096195E6B5300838B30 /* block2.png in Resources */,
 				2ED6A7B51A57474600B57985 /* manager.png in Resources */,
+				2E4F67671BE117370087F50C /* ready_go.mp3 in Resources */,
 				2EB248081BDF7A870021C568 /* 3011.png in Resources */,
 				2E3DF79C1BD752460006E6E4 /* PortTown.jpg in Resources */,
 				2E5073F41AB07CD000C9AB32 /* behit in Resources */,
@@ -2684,6 +2697,7 @@
 				2EB247FF1BDF7A870021C568 /* 3002.png in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				C12B409A195E6B5300838B30 /* brick1.png in Resources */,
+				2E4F67651BE117370087F50C /* 正确回答.mp3 in Resources */,
 				C143A4261988E1110022FAF5 /* 002.png in Resources */,
 				2E31F2A41A56F25300AF2EE1 /* player_male.png in Resources */,
 				2ED42B7A19EAB57400DDA501 /* bg_bar_health.png in Resources */,
@@ -2738,6 +2752,7 @@
 				C12B40A8195E6B5300838B30 /* target3.png in Resources */,
 				2E3DF79F1BD764310006E6E4 /* dianguanghuoshi@2x.png in Resources */,
 				2E4EA06D1A063094003A29A5 /* huodong.png in Resources */,
+				2E4F67661BE117370087F50C /* cool.mp3 in Resources */,
 				2E4EA0601A062D59003A29A5 /* to_city.png in Resources */,
 				2EB248151BDF7A870021C568 /* 3024.png in Resources */,
 				2E6046EC1BD4F0F10000F3F1 /* 普通攻击.mp3 in Resources */,
@@ -2785,6 +2800,7 @@
 				C12B4095195E6B5300838B30 /* block1.png in Resources */,
 				2ED47BFE1A03D63A0065D0EE /* icon_female.png in Resources */,
 				2ECAD51619EA521700180F42 /* bg_fight.png in Resources */,
+				2E4F67641BE117370087F50C /* 回答错误.mp3 in Resources */,
 				2E4EA05B1A061D64003A29A5 /* money_prop.png in Resources */,
 				2E6046F01BD4F0F10000F3F1 /* KO.mp3 in Resources */,
 				2ED47BF91A03D0230065D0EE /* launch.jpg in Resources */,
