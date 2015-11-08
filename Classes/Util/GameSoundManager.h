@@ -21,6 +21,8 @@ public:
     void playGoEffect();
     void playWinEffect();
     void playReadyGoEffect();
+    void playAnswerRightEffect();
+    void playAnswerErrorEffect();
 private:
     GameSoundManager();
     virtual ~GameSoundManager();

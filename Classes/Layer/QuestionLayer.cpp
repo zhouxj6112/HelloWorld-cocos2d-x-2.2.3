@@ -286,6 +286,9 @@ void QuestionLayer::touchDownAction(CCObject *sender, CCControlEvent controlEven
                 rightLimit += 1;
             }
             isAnswerFinished = true;
+            
+            GameSoundManager::shareManager()->playAnswerRightEffect();
+            
         } else {
             CCLOG("正确答案没选完");
         }
@@ -301,6 +304,8 @@ void QuestionLayer::touchDownAction(CCObject *sender, CCControlEvent controlEven
         
         errorAnswer++;
         isAnswerFinished = true;
+        
+        GameSoundManager::shareManager()->playAnswerErrorEffect();
     }
 }
 

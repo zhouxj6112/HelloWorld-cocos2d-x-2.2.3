@@ -69,3 +69,13 @@ void GameSoundManager::playReadyGoEffect()
 {
     CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("ready_go.mp3");
 }
+
+void GameSoundManager::playAnswerRightEffect()
+{
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("正确回答.mp3");
+}
+
+void GameSoundManager::playAnswerErrorEffect()
+{
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("回答错误.mp3");
+}
