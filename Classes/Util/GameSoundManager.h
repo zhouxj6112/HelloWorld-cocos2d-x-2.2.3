@@ -15,12 +15,17 @@ public:
     static GameSoundManager* shareManager();
     void preLoad();
     void playFightBackgroundMusic();
+    void stopPlayBackgroundMusic();
     void playAttackEffect(bool isHeavy);
     void playKOEffect();
     void playReadyEffect();
     void playGoEffect();
     void playWinEffect();
     void playReadyGoEffect();
+    //
+    void playAnswerRight();
+    void playAnswerError();
+    void playAnswerCool();
 private:
     GameSoundManager();
     virtual ~GameSoundManager();

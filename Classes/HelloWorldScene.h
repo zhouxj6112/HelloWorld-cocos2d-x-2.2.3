@@ -18,6 +18,7 @@ public:
     void menuTestLayer(CCObject* pSender);
     void menuGameLayer(CCObject* pSender);
     void menuFightLayer(CCObject* pSender);
+    void menuFightAllLayer(CCObject* pSender);
     
     // implement the "static node()" method manually
     CREATE_FUNC(HelloWorld);

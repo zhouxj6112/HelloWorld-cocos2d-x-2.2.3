@@ -428,6 +428,7 @@
 		D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949B15BD2D8E00D803EB /* Icon-114.png */; };
 		D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949D15BD2D9600D803EB /* Icon-72.png */; };
 		D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949F15BD2D9800D803EB /* Icon-144.png */; };
+		E66DD4641BF311C300D45993 /* 拳皇背景.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E66DD4631BF311C300D45993 /* 拳皇背景.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1150,6 +1151,7 @@
 		D4EF949D15BD2D9600D803EB /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../proj.ios/Icon-72.png"; sourceTree = "<group>"; };
 		D4EF949F15BD2D9800D803EB /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-144.png"; path = "../proj.ios/Icon-144.png"; sourceTree = "<group>"; };
 		D4F9F37B12E54555005CA6D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		E66DD4631BF311C300D45993 /* 拳皇背景.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "拳皇背景.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2048,6 +2050,7 @@
 		2EED96AA1A597E3300FAE358 /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				E66DD4631BF311C300D45993 /* 拳皇背景.mp3 */,
 				2E4F67601BE117370087F50C /* 回答错误.mp3 */,
 				2E4F67611BE117370087F50C /* 正确回答.mp3 */,
 				2E4F67621BE117370087F50C /* cool.mp3 */,
@@ -2684,6 +2687,7 @@
 				C12B408F195E6B5300838B30 /* arrow000.png in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
 				C12B40A3195E6B5300838B30 /* star000.png in Resources */,
+				E66DD4641BF311C300D45993 /* 拳皇背景.mp3 in Resources */,
 				2E19AC8B1972D2CF00A73C3E /* role_walk.png in Resources */,
 				2E6046ED1BD4F0F10000F3F1 /* 重击.mp3 in Resources */,
 				2EB248071BDF7A870021C568 /* 3010.png in Resources */,

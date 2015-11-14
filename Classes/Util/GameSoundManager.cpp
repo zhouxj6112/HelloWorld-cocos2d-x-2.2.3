@@ -28,12 +28,17 @@ GameSoundManager::~GameSoundManager()
 
 void GameSoundManager::preLoad()
 {
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic("BG.mp3");
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic("拳皇背景.mp3");
 }
 
 void GameSoundManager::playFightBackgroundMusic()
 {
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("BG.mp3", true);
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("拳皇背景.mp3", true);
+}
+
+void GameSoundManager::stopPlayBackgroundMusic()
+{
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(false);
 }
 
 void GameSoundManager::playAttackEffect(bool isHeavy)
@@ -68,4 +73,17 @@ void GameSoundManager::playWinEffect()
 void GameSoundManager::playReadyGoEffect()
 {
     CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("ready_go.mp3");
+}
+
+void GameSoundManager::playAnswerRight()
+{
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("正确回答.mp3");
+}
+void GameSoundManager::playAnswerError()
+{
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("回答错误.mp3");
+}
+void GameSoundManager::playAnswerCool()
+{
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("cool.mp3");
 }

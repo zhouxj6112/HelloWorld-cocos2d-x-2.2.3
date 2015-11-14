@@ -11,6 +11,7 @@
 #include "RoleObj.h"
 #include "GameSoundManager.h"
 #include "AnimationManager.h"
+#include "LoadingScene.h"
 
 bool FightLayer::init()
 {
@@ -70,8 +71,10 @@ static int boss_attack_count = 0;
 
 void FightLayer::attackProcedure(int attack_count, int counter_attack_count)
 {
-    attack_count = 10;
-    counter_attack_count = 5;
+    if (is_realy_fight == false) {
+        attack_count = 10;
+        counter_attack_count = 5;
+    }
     
     roleAttackCount = attack_count;
     bossAttackCount = counter_attack_count;

@@ -12,6 +12,8 @@
 #include "cocos2d.h"
 USING_NS_CC;
 
+extern bool is_realy_fight;
+
 class LoadingScene : public cocos2d::CCLayer
 {
 public:

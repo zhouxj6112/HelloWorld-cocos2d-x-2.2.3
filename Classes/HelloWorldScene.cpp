@@ -62,12 +62,16 @@ bool HelloWorld::init()
     pMenuItem3->setFontSizeObj(30);
     pMenuItem3->setColor(cocos2d::ccc3(0,255,255));
     pMenuItem3->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/2, CCDirector::sharedDirector()->getWinSize().height/5*2));
-    CCMenuItemFont* pMenuItem4 = CCMenuItemFont::create("战斗逻辑", this, menu_selector(HelloWorld::menuFightLayer));
+    CCMenuItemFont* pMenuItem4 = CCMenuItemFont::create("战斗逻辑(10连击)", this, menu_selector(HelloWorld::menuFightAllLayer));
     pMenuItem4->setFontSizeObj(30);
     pMenuItem4->setColor(cocos2d::ccc3(0,255,255));
-    pMenuItem4->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/2, CCDirector::sharedDirector()->getWinSize().height/5*1));
+    pMenuItem4->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/2, CCDirector::sharedDirector()->getWinSize().height/5*1+20));
+    CCMenuItemFont* pMenuItem5 = CCMenuItemFont::create("战斗逻辑(普通击)", this, menu_selector(HelloWorld::menuFightLayer));
+    pMenuItem5->setFontSizeObj(30);
+    pMenuItem5->setColor(cocos2d::ccc3(0,255,255));
+    pMenuItem5->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/2, CCDirector::sharedDirector()->getWinSize().height/5*1-30));
     // create menu, it's an autorelease object
-    CCMenu* pMenu = CCMenu::create(pCloseItem, pMenuItem1, pMenuItem2, pMenuItem3, pMenuItem4, NULL);
+    CCMenu* pMenu = CCMenu::create(pCloseItem, pMenuItem1, pMenuItem2, pMenuItem3, pMenuItem4, pMenuItem5, NULL);
     pMenu->setPosition(CCPointZero);
     this->addChild(pMenu, 1);
 
@@ -122,6 +126,15 @@ void HelloWorld::menuGameLayer(CCObject* pSender)
 
 void HelloWorld::menuFightLayer(CCObject* pSender)
 {
+    is_realy_fight = true;
+    
+    CCScene* pScene = LoadingScene::scene();
+    CCDirector::sharedDirector()->pushScene(pScene);
+}
+void HelloWorld::menuFightAllLayer(CCObject* pSender)
+{
+    is_realy_fight = false;
+    
     CCScene* pScene = LoadingScene::scene();
     CCDirector::sharedDirector()->pushScene(pScene);
 }

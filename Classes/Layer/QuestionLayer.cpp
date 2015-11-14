@@ -9,10 +9,11 @@
 #include "QuestionLayer.h"
 #include "Utils.h"
 #include "GameSoundManager.h"
+#include "LoadingScene.h"
 
 USING_NS_CC;
 
-static int number_in_group = 1;
+static int number_in_group = 5;
 
 QuestionLayer::QuestionLayer()
 {
@@ -55,6 +56,12 @@ bool QuestionLayer::init()
     serialNo = 0;
     CCLOG("queType:%d", queType);
     
+    if (is_realy_fight == false) {
+        number_in_group = 1;
+    } else {
+        number_in_group = 5;
+    }
+    
     CCSize size = this->getContentSize();
     
     //开始显示题型
@@ -89,6 +96,9 @@ void QuestionLayer::start(cocos2d::CCObject *object, void *param)
     ((CCLayer *)object)->removeFromParent();
     
     this->startAnswer();
+    
+    //播放背景
+    GameSoundManager::shareManager()->playFightBackgroundMusic();
 }
 
 void QuestionLayer::startAnswer()
@@ -284,8 +294,15 @@ void QuestionLayer::touchDownAction(CCObject *sender, CCControlEvent controlEven
             rightAnswer++;
             if (timerCount >= timerTotal*2/3) {
                 rightLimit += 1;
+                //播放快速答题音效
+                GameSoundManager::shareManager()->playAnswerCool();
+            } else {
+                //播放普通答题正确音效
+                GameSoundManager::shareManager()->playAnswerRight();
             }
             isAnswerFinished = true;
+            
+            
         } else {
             CCLOG("正确答案没选完");
         }
@@ -301,6 +318,9 @@ void QuestionLayer::touchDownAction(CCObject *sender, CCControlEvent controlEven
         
         errorAnswer++;
         isAnswerFinished = true;
+        
+        //播放错误音效
+        GameSoundManager::shareManager()->playAnswerError();
     }
 }
 
@@ -316,6 +336,8 @@ void QuestionLayer::resetNextQuestion()
 void QuestionLayer::noticeDelegate(cocos2d::CCObject *object, void *param)
 {
     this->unschedule(schedule_selector(QuestionLayer::timerCB));
+    
+//    GameSoundManager::shareManager()->stopPlayBackgroundMusic();
     
     if ((rightAnswer+errorAnswer) >= number_in_group) { //每回答5道题,结算一次
         if (mDelegate) {
@@ -392,3 +414,15 @@ void QuestionLayer::displaySubViews()
         this->addChild(button, 1);
     }
 }
+
+void QuestionLayer::onEnter()
+{
+    CCLayer::onEnter();
+}
+void QuestionLayer::onExit()
+{
+    CCLayer::onExit();
+    //
+    GameSoundManager::shareManager()->stopPlayBackgroundMusic();
+}
+

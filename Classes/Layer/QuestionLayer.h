@@ -41,6 +41,8 @@ public:
     // implement the "static node()" method manually
     CREATE_FUNC(QuestionLayer);
     static QuestionLayer* create(QuestionType qType);
+    virtual void onEnter();
+    virtual void onExit();
     
     void setDelegate(QuestionLayerDelegate* delegate);
     //代理协议

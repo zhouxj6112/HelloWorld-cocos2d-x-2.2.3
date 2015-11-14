@@ -12,6 +12,8 @@
 
 USING_NS_CC;
 
+bool is_realy_fight = true;
+
 CCScene* LoadingScene::scene()
 {
     // 'scene' is an autorelease object
