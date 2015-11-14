@@ -270,6 +270,32 @@ void AnimationManager::preLoadAnimations()
         pAnimation->setLoops(1);
         CCAnimationCache::sharedAnimationCache()->addAnimation(pAnimation, "hero_behit_1");
     }
+    pAnimation = CCAnimationCache::sharedAnimationCache()->animationByName("hero_dead");
+    if (pAnimation == NULL) {
+        pAnimation = CCAnimation::create();
+        for (int i=0; i<5; i++)
+        {
+            CCString* pFileName = CCString::createWithFormat("dead/s%04d.png", i);
+            pAnimation->addSpriteFrameWithFileName(pFileName->getCString());
+        }
+        pAnimation->setRestoreOriginalFrame(true);
+        pAnimation->setDelayPerUnit(0.1f);    // 必须设置这个，要不就不会播放
+        pAnimation->setLoops(1);
+        CCAnimationCache::sharedAnimationCache()->addAnimation(pAnimation, "hero_dead");
+    }
+    pAnimation = CCAnimationCache::sharedAnimationCache()->animationByName("hero_win");
+    if (pAnimation == NULL) {
+        pAnimation = CCAnimation::create();
+        for (int i=1; i<=3; i++)
+        {
+            CCString* pFileName = CCString::createWithFormat("win/1%04d.png", i);
+            pAnimation->addSpriteFrameWithFileName(pFileName->getCString());
+        }
+        pAnimation->setRestoreOriginalFrame(true);
+        pAnimation->setDelayPerUnit(0.1f);    // 必须设置这个，要不就不会播放
+        pAnimation->setLoops(1);
+        CCAnimationCache::sharedAnimationCache()->addAnimation(pAnimation, "hero_win");
+    }
     
     pAnimation = CCAnimationCache::sharedAnimationCache()->animationByName("atk_bg");
     if (pAnimation == NULL) {

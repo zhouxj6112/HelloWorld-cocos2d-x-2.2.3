@@ -314,10 +314,10 @@ void FightLayer::attackCollision(PlayerObj *obj, CSkill* skill)
     }
 }
 
-void FightLayer::actionWillStart(PlayerObj *obj, PlayerStatus status, int sid)
+void FightLayer::actionWillStart(PlayerObj *obj, PlayerStatus status, int sid, int sType)
 {
     CCLOG("%d", sid);
-    if (status==STATUS_ATTACK && sid==10) {
+    if (status==STATUS_ATTACK && sType==9) {
         this->playFightBgAnimation();
     }
 }

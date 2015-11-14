@@ -59,7 +59,7 @@ public:
     //IPlayerObj
     virtual void actionFrameDidFinished(PlayerObj* obj, PlayerStatus status);
     virtual void attackCollision(PlayerObj* obj, CSkill* skill);
-    virtual void actionWillStart(PlayerObj* obj, PlayerStatus status, int sid);
+    virtual void actionWillStart(PlayerObj* obj, PlayerStatus status, int sid, int sType);
 private:
     //攻击剩余次数
     int roleAttackCount;

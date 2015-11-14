@@ -300,8 +300,8 @@ void QuestionLayer::touchDownAction(CCObject *sender, CCControlEvent controlEven
                 //播放普通答题正确音效
                 GameSoundManager::shareManager()->playAnswerRight();
             }
-            isAnswerFinished = true;
             
+            isAnswerFinished = true;
             
         } else {
             CCLOG("正确答案没选完");

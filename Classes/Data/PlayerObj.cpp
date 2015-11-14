@@ -58,7 +58,7 @@ void PlayerObj::changeToStatus(PlayerStatus status, int sid, int sType, PlayerDi
     }
     curDir = dir;
     if (mDelegate) {
-        mDelegate->actionWillStart(this, status, sid);
+        mDelegate->actionWillStart(this, status, sid, sType);
     }
     if (status == STATUS_STAND) {
         this->stand(sid);

@@ -26,6 +26,7 @@ public:
     void playAnswerRight();
     void playAnswerError();
     void playAnswerCool();
+    
 private:
     GameSoundManager();
     virtual ~GameSoundManager();
