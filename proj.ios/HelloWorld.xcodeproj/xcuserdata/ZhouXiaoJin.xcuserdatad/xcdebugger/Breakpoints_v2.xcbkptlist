@@ -9,29 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/Layer/QuestionLayer.cpp"
-            timestampString = "469176128.300081"
+            filePath = "../Classes/Layer/FightLayer.cpp"
+            timestampString = "469183937.646636"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "418"
-            endingLineNumber = "418"
-            landmarkName = "QuestionLayer::onEnter()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/Layer/QuestionLayer.cpp"
-            timestampString = "469175640.898934"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "QuestionLayer::init()"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "FightLayer::attackProcedure(int attack_count, int counter_attack_count)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

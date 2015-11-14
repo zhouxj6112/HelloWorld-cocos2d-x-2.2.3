@@ -92,6 +92,10 @@ void FightLayer::attackProcedure(int attack_count, int counter_attack_count)
         //
         this->attackBackProcedure(NULL, NULL);
     }
+    
+    if (attack_count == 10) {
+        this->playFightBgAnimation();
+    }
 }
                             
 void FightLayer::runActionDidFinished(CCObject* object, void* param)
@@ -317,9 +321,9 @@ void FightLayer::attackCollision(PlayerObj *obj, CSkill* skill)
 void FightLayer::actionWillStart(PlayerObj *obj, PlayerStatus status, int sid, int sType)
 {
     CCLOG("%d", sid);
-    if (status==STATUS_ATTACK && sType==9) {
-        this->playFightBgAnimation();
-    }
+//    if (status==STATUS_ATTACK && sType==9) {
+//        this->playFightBgAnimation();
+//    }
 }
 
 void FightLayer::playKOAnimation()
