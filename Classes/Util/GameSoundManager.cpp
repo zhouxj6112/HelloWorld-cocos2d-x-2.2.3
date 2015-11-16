@@ -21,6 +21,8 @@ GameSoundManager* GameSoundManager::shareManager()
 
 GameSoundManager::GameSoundManager()
 {
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->setBackgroundMusicVolume(0.5f);
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->setEffectsVolume(1.0f);
 }
 GameSoundManager::~GameSoundManager()
 {
