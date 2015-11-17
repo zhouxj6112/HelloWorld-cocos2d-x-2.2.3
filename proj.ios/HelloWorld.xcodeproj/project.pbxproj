@@ -429,6 +429,7 @@
 		D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949D15BD2D9600D803EB /* Icon-72.png */; };
 		D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949F15BD2D9800D803EB /* Icon-144.png */; };
 		E66DD4641BF311C300D45993 /* 拳皇背景.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E66DD4631BF311C300D45993 /* 拳皇背景.mp3 */; };
+		E6E955B01BFAFBD10025A356 /* question_4.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E955AF1BFAFBD10025A356 /* question_4.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1152,6 +1153,7 @@
 		D4EF949F15BD2D9800D803EB /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-144.png"; path = "../proj.ios/Icon-144.png"; sourceTree = "<group>"; };
 		D4F9F37B12E54555005CA6D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		E66DD4631BF311C300D45993 /* 拳皇背景.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "拳皇背景.mp3"; sourceTree = "<group>"; };
+		E6E955AF1BFAFBD10025A356 /* question_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = question_4.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1182,6 +1184,7 @@
 		015EFF271A490751006E6DDD /* plist */ = {
 			isa = PBXGroup;
 			children = (
+				E6E955AF1BFAFBD10025A356 /* question_4.plist */,
 				01DEB94D1A52700400A71BA8 /* question_1.plist */,
 				01DEB94E1A52700400A71BA8 /* question_2.plist */,
 				01DEB94C1A52700400A71BA8 /* question_3.plist */,
@@ -2775,6 +2778,7 @@
 				2ED6A7B91A57475400B57985 /* friends.png in Resources */,
 				C12B40A0195E6B5300838B30 /* right.png in Resources */,
 				2EB248011BDF7A870021C568 /* 3004.png in Resources */,
+				E6E955B01BFAFBD10025A356 /* question_4.plist in Resources */,
 				C143A4281988E1110022FAF5 /* 004.png in Resources */,
 				C12B40A9195E6B5300838B30 /* map1-1.txt in Resources */,
 				2E5073EE1AB07C7D00C9AB32 /* vertigo in Resources */,

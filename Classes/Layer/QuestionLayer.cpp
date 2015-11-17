@@ -115,7 +115,7 @@ void QuestionLayer::startAnswer()
     
     const char* filePath = NULL;
     if (queType == SingleQuestion) {
-        filePath = CCFileUtils::sharedFileUtils()->fullPathForFilename("question_1.plist").c_str();
+        filePath = CCFileUtils::sharedFileUtils()->fullPathForFilename("question_4.plist").c_str();
     } else if (queType == JudgeQuestion) {
         filePath = CCFileUtils::sharedFileUtils()->fullPathForFilename("question_2.plist").c_str();
     } else {
@@ -368,6 +368,11 @@ void QuestionLayer::displaySubViews()
         columns = 2;
         rows = 1;
         spaceX = 80;
+    } else if (answer->count() <= 3) {
+        //3选1
+        columns = 1;
+        rows = 3;
+        spaceX = 50;
     } else if (answer->count() <= 4) {
         //最多2x2个答案选项的
         columns = 2;

@@ -4,20 +4,26 @@
 <array>
 	<dict>
 		<key>type</key>
-		<integer>2</integer>
+		<integer>3</integer>
 		<key>question</key>
-		<string>卧槽其实是象棋术语</string>
+		<string>单词“My”的意思是？</string>
 		<key>answer</key>
 		<array>
 			<dict>
 				<key>content</key>
-				<string>对</string>
+				<string>他们的</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>我的</string>
 				<key>right</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>错</string>
+				<string>你们的</string>
 				<key>right</key>
 				<false/>
 			</dict>
@@ -25,104 +31,26 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>2</integer>
+		<integer>3</integer>
 		<key>question</key>
-		<string>《孔雀东南飞》描述的是七仙女与董永的爱情故事？</string>
+		<string>如果要询问价格，你会说？</string>
 		<key>answer</key>
 		<array>
 			<dict>
 				<key>content</key>
-				<string>对</string>
+				<string>How many?</string>
 				<key>right</key>
 				<false/>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>错</string>
-				<key>right</key>
-				<true/>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>type</key>
-		<integer>2</integer>
-		<key>question</key>
-		<string>“乳摇”一词来源于动作游戏《使命召唤》？</string>
-		<key>answer</key>
-		<array>
-			<dict>
-				<key>content</key>
-				<string>对</string>
-				<key>right</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>错</string>
-				<key>right</key>
-				<true/>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>type</key>
-		<integer>2</integer>
-		<key>question</key>
-		<string>关公过五关斩六将是为了给嫂子买麻辣烫。</string>
-		<key>answer</key>
-		<array>
-			<dict>
-				<key>content</key>
-				<string>对</string>
-				<key>right</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>错</string>
-				<key>right</key>
-				<true/>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>type</key>
-		<integer>1</integer>
-		<key>question</key>
-		<string>韦小宝有8个老婆</string>
-		<key>answer</key>
-		<array>
-			<dict>
-				<key>content</key>
-				<string>对</string>
-				<key>right</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>错</string>
-				<key>right</key>
-				<true/>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>type</key>
-		<integer>1</integer>
-		<key>question</key>
-		<string>全国人民都爱习大大和彭麻麻</string>
-		<key>answer</key>
-		<array>
-			<dict>
-				<key>content</key>
-				<string>对</string>
+				<string>How much?</string>
 				<key>right</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>错</string>
+				<string>How is it?</string>
 				<key>right</key>
 				<false/>
 			</dict>
@@ -130,20 +58,26 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>1</integer>
+		<integer>3</integer>
 		<key>question</key>
-		<string>红楼梦的四大姓氏是贾史王薛</string>
+		<string>下列哪一个是首席执行长官的缩写？</string>
 		<key>answer</key>
 		<array>
 			<dict>
 				<key>content</key>
-				<string>对</string>
+				<string>CFO</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>CEO</string>
 				<key>right</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>错</string>
+				<string>COO</string>
 				<key>right</key>
 				<false/>
 			</dict>
@@ -151,20 +85,26 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>1</integer>
+		<integer>3</integer>
 		<key>question</key>
-		<string>希腊神话战神是&quot;阿瑞斯&quot;。</string>
+		<string>英文一共有多少个字母？</string>
 		<key>answer</key>
 		<array>
 			<dict>
 				<key>content</key>
-				<string>对</string>
+				<string>24个</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>26个</string>
 				<key>right</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>错</string>
+				<string>27个</string>
 				<key>right</key>
 				<false/>
 			</dict>
@@ -172,20 +112,80 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>1</integer>
+		<integer>3</integer>
 		<key>question</key>
-		<string>世界文学巨匠安东.巴夫洛维奇.洯科夫是俄国人？</string>
+		<string>三国中买草席的是谁？</string>
 		<key>answer</key>
 		<array>
 			<dict>
 				<key>content</key>
-				<string>对</string>
+				<string>庞统</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>周瑜</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>刘备</string>
+				<key>right</key>
+				<true/>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>type</key>
+		<integer>3</integer>
+		<key>question</key>
+		<string>《三国演义》的作者是？</string>
+		<key>answer</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>施耐庵</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>吴承恩</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>罗贯中</string>
+				<key>right</key>
+				<true/>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>type</key>
+		<integer>3</integer>
+		<key>question</key>
+		<string>三国中那位美女被列为古代“四大美女”？</string>
+		<key>answer</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>貂蝉</string>
 				<key>right</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>错</string>
+				<string>小乔</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>甄姬</string>
 				<key>right</key>
 				<false/>
 			</dict>
@@ -193,20 +193,26 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>1</integer>
+		<integer>3</integer>
 		<key>question</key>
-		<string>现存陆地最大肉食动物北极熊。</string>
+		<string>刘备的第三位夫人是？</string>
 		<key>answer</key>
 		<array>
 			<dict>
 				<key>content</key>
-				<string>对</string>
+				<string>甘夫人</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>孙夫人</string>
 				<key>right</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>错</string>
+				<string>糜夫人</string>
 				<key>right</key>
 				<false/>
 			</dict>
@@ -214,20 +220,26 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>1</integer>
+		<integer>3</integer>
 		<key>question</key>
-		<string>诸葛亮出山时候的年纪是27岁。</string>
+		<string>三国猛将夏侯惇瞎了的眼睛去哪里了？</string>
 		<key>answer</key>
 		<array>
 			<dict>
 				<key>content</key>
-				<string>对</string>
+				<string>忘在家里了。</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>自己吃了</string>
 				<key>right</key>
 				<true/>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>错</string>
+				<string>天生就没有</string>
 				<key>right</key>
 				<false/>
 			</dict>
@@ -235,20 +247,80 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>1</integer>
+		<integer>3</integer>
 		<key>question</key>
-		<string>唐朝被列为贡品的南方水果是“香蕉”</string>
+		<string>被誉为&quot;篮球飞人&quot;的是哪位运动员？</string>
 		<key>answer</key>
 		<array>
 			<dict>
 				<key>content</key>
-				<string>对</string>
+				<string>奥尼尔</string>
 				<key>right</key>
 				<false/>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>错</string>
+				<string>乔丹</string>
+				<key>right</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>科比</string>
+				<key>right</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>type</key>
+		<integer>3</integer>
+		<key>question</key>
+		<string>篮球比赛中一次投篮最多可以得多少分？</string>
+		<key>answer</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>2分</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>3分</string>
+				<key>right</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>4分</string>
+				<key>right</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>type</key>
+		<integer>3</integer>
+		<key>question</key>
+		<string>1990年十一届亚运会在哪里举办？</string>
+		<key>answer</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>东京</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>曼谷</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>北京</string>
 				<key>right</key>
 				<true/>
 			</dict>
