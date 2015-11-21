@@ -1701,9 +1701,9 @@
 				C165815C19751A4E00CDAAB5 /* Util */,
 				2E8F9568195F11420030C579 /* AppDelegate.cpp */,
 				2E8F9569195F11420030C579 /* AppDelegate.h */,
-				2E8F956A195F11420030C579 /* AppMacros.h */,
 				2E8F956B195F11420030C579 /* HelloWorldScene.cpp */,
 				2E8F956C195F11420030C579 /* HelloWorldScene.h */,
+				2E8F956A195F11420030C579 /* AppMacros.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -2531,10 +2531,10 @@
 		C165815019751A4D00CDAAB5 /* Layer */ = {
 			isa = PBXGroup;
 			children = (
-				C130D1D71987DCAE00DC0FFF /* CCGameScrollView.cpp */,
 				C130D1D81987DCAE00DC0FFF /* CCGameScrollView.h */,
-				C165815119751A4D00CDAAB5 /* MessageHandleBox.cpp */,
+				C130D1D71987DCAE00DC0FFF /* CCGameScrollView.cpp */,
 				C165815219751A4D00CDAAB5 /* MessageHandleBox.h */,
+				C165815119751A4D00CDAAB5 /* MessageHandleBox.cpp */,
 				C165815419751A4D00CDAAB5 /* QuestionLayer.h */,
 				C165815319751A4D00CDAAB5 /* QuestionLayer.cpp */,
 				C11F353E1977BB7B002192B1 /* MessageTipBox.h */,

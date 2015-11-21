@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>type</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>question</key>
 		<string>单词“My”的意思是？</string>
 		<key>answer</key>
@@ -31,7 +31,7 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>question</key>
 		<string>如果要询问价格，你会说？</string>
 		<key>answer</key>
@@ -58,7 +58,7 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>question</key>
 		<string>下列哪一个是首席执行长官的缩写？</string>
 		<key>answer</key>
@@ -85,7 +85,7 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>question</key>
 		<string>英文一共有多少个字母？</string>
 		<key>answer</key>
@@ -112,7 +112,7 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>question</key>
 		<string>三国中买草席的是谁？</string>
 		<key>answer</key>
@@ -139,7 +139,7 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>question</key>
 		<string>《三国演义》的作者是？</string>
 		<key>answer</key>
@@ -166,7 +166,7 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>question</key>
 		<string>三国中那位美女被列为古代“四大美女”？</string>
 		<key>answer</key>
@@ -193,7 +193,7 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>question</key>
 		<string>刘备的第三位夫人是？</string>
 		<key>answer</key>
@@ -220,7 +220,7 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>question</key>
 		<string>三国猛将夏侯惇瞎了的眼睛去哪里了？</string>
 		<key>answer</key>
@@ -247,7 +247,7 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>question</key>
 		<string>被誉为&quot;篮球飞人&quot;的是哪位运动员？</string>
 		<key>answer</key>
@@ -274,7 +274,7 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>question</key>
 		<string>篮球比赛中一次投篮最多可以得多少分？</string>
 		<key>answer</key>
@@ -301,7 +301,7 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>question</key>
 		<string>1990年十一届亚运会在哪里举办？</string>
 		<key>answer</key>

@@ -84,7 +84,7 @@ bool QuestionLayer::init()
     CCAction* pAction = CCCallFuncND::create(this, callfuncND_selector(QuestionLayer::start), NULL);
     ttf->runAction(CCSequence::create(scaleTo, pAction, NULL));
     
-    GameSoundManager::shareManager()->playReadyGoEffect();
+//    GameSoundManager::shareManager()->playReadyGoEffect();
     
     isAnswerFinished = false;
     
@@ -97,8 +97,8 @@ void QuestionLayer::start(cocos2d::CCObject *object, void *param)
     
     this->startAnswer();
     
-    //播放背景
-    GameSoundManager::shareManager()->playFightBackgroundMusic();
+//    //播放背景
+//    GameSoundManager::shareManager()->playFightBackgroundMusic();
 }
 
 void QuestionLayer::startAnswer()
@@ -427,7 +427,5 @@ void QuestionLayer::onEnter()
 void QuestionLayer::onExit()
 {
     CCLayer::onExit();
-    //
-    GameSoundManager::shareManager()->stopPlayBackgroundMusic();
 }
 

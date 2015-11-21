@@ -63,6 +63,8 @@ bool FightScene::init()
     this->addChild(questionlayer_);
     answerCount = 0;
     
+    GameSoundManager::shareManager()->playReadyGoEffect();
+    
 //    /*测试*/
 //    CCLabelTTF* pLabel1 = CCLabelTTF::create("", "Arial", 24);
 //    CCControlButton* button1 = CCControlButton::create(pLabel1, CCScale9Sprite::create("left.png"));
@@ -107,12 +109,16 @@ void FightScene::onEnter()
 //    speed = 0.5f;
 //    CCScheduler* pScheduler = CCDirector::sharedDirector()->getScheduler();
 //    pScheduler->setTimeScale(speed);
+    
+    GameSoundManager::shareManager()->playFightBackgroundMusic();
 }
 void FightScene::onExit()
 {
     speed = 1.0f;
     CCScheduler* pScheduler = CCDirector::sharedDirector()->getScheduler();
     pScheduler->setTimeScale(speed);
+    
+    GameSoundManager::shareManager()->stopPlayBackgroundMusic();
     
     CCLayer::onExit();
 }
