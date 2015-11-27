@@ -429,6 +429,7 @@
 		D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949D15BD2D9600D803EB /* Icon-72.png */; };
 		D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949F15BD2D9800D803EB /* Icon-144.png */; };
 		E66DD4641BF311C300D45993 /* 拳皇背景.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E66DD4631BF311C300D45993 /* 拳皇背景.mp3 */; };
+		E6ADD9611C088B210092A796 /* FightPropLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6ADD95F1C088B210092A796 /* FightPropLayer.cpp */; };
 		E6E955B01BFAFBD10025A356 /* question_4.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E955AF1BFAFBD10025A356 /* question_4.plist */; };
 /* End PBXBuildFile section */
 
@@ -1153,6 +1154,8 @@
 		D4EF949F15BD2D9800D803EB /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-144.png"; path = "../proj.ios/Icon-144.png"; sourceTree = "<group>"; };
 		D4F9F37B12E54555005CA6D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		E66DD4631BF311C300D45993 /* 拳皇背景.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "拳皇背景.mp3"; sourceTree = "<group>"; };
+		E6ADD95F1C088B210092A796 /* FightPropLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FightPropLayer.cpp; sourceTree = "<group>"; };
+		E6ADD9601C088B210092A796 /* FightPropLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FightPropLayer.h; sourceTree = "<group>"; };
 		E6E955AF1BFAFBD10025A356 /* question_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = question_4.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2549,6 +2552,8 @@
 				2E1CA5FF1A39C6C800909CAD /* BattleResultLayer.cpp */,
 				2E94633B1BDE315E006911F5 /* FightBgLayer.h */,
 				2E94633A1BDE315E006911F5 /* FightBgLayer.cpp */,
+				E6ADD9601C088B210092A796 /* FightPropLayer.h */,
+				E6ADD95F1C088B210092A796 /* FightPropLayer.cpp */,
 			);
 			name = Layer;
 			path = ../Classes/Layer;
@@ -2836,6 +2841,7 @@
 				2E1DC5D01BD93B2400E3A050 /* LoadingScene.cpp in Sources */,
 				15A3D9001682F7D5002FB0C5 /* b2CollideCircle.cpp in Sources */,
 				298B29C018D0668400C1920F /* LayoutReader.cpp in Sources */,
+				E6ADD9611C088B210092A796 /* FightPropLayer.cpp in Sources */,
 				2E8F9574195F11420030C579 /* HelloWorldScene.cpp in Sources */,
 				15A3D9011682F7D5002FB0C5 /* b2CollideEdge.cpp in Sources */,
 				2E31F29B1A56EB4400AF2EE1 /* Global.cpp in Sources */,
