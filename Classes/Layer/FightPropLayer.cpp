@@ -16,7 +16,36 @@ bool FightPropLayer::init()
     if (!CCLayer::init()) {
         return false;
     }
+    
+    CCMenuItemFont* pMenuItem1 = CCMenuItemFont::create("道具1 (更换题目)", this, menu_selector(FightPropLayer::menuDidSelected));
+    pMenuItem1->setFontSizeObj(24);
+    pMenuItem1->setColor(cocos2d::ccc3(0,255,255));
+    pMenuItem1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/4, 30));
+    pMenuItem1->setTag(1001);
+    CCMenuItemFont* pMenuItem2 = CCMenuItemFont::create("道具2 (正确答案)", this, menu_selector(FightPropLayer::menuDidSelected));
+    pMenuItem2->setFontSizeObj(24);
+    pMenuItem2->setColor(cocos2d::ccc3(0,255,255));
+    pMenuItem2->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/4*3, 30));
+    pMenuItem2->setTag(1002);
+    // create menu, it's an autorelease object
+    CCMenu* pMenu = CCMenu::create(pMenuItem1, pMenuItem2, NULL);
+    pMenu->setPosition(CCPointZero);
+    this->addChild(pMenu, 1);
+    
     return true;
+}
+
+void FightPropLayer::menuDidSelected(CCObject* pSender)
+{
+    CCMenuItem* menuItem = (CCMenuItem *)pSender;
+    if (mDelegate) {
+        mDelegate->useProp(menuItem->getTag()-1001);
+    }
+}
+
+void FightPropLayer::setDelegate(FightPropLayerDelegate* delegate)
+{
+    mDelegate = delegate;
 }
 
 //道具有以下几个

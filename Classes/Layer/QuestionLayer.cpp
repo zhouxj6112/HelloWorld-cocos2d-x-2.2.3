@@ -188,6 +188,12 @@ void QuestionLayer::startAnswer()
     if (serialNo > plistArray->count()-1) {
         serialNo = 0;
     }
+    
+    propLayer_ = FightPropLayer::create();
+    propLayer_->setDelegate(this);
+    propLayer_->setAnchorPoint( ccp(0.5, 0.5) );
+    propLayer_->setPosition( ccp(-size.width/2, -320) );
+    this->addChild(propLayer_, 100, 100);
 }
 
 void QuestionLayer::timerCB()
@@ -429,3 +435,13 @@ void QuestionLayer::onExit()
     CCLayer::onExit();
 }
 
+void QuestionLayer::useProp(int propIndex)
+{
+    if (propIndex == 0) {
+        this->resetNextQuestion();
+    } else if (propIndex == 1) {
+        //
+    } else {
+        //
+    }
+}

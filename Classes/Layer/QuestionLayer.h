@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "QuestionObj.h"
+#include "FightPropLayer.h"
 
 #include "cocos-ext.h"
 USING_NS_CC_EXT;
@@ -30,7 +31,7 @@ public:
     virtual void answerDelegateCB(QuestionLayer* box, int rightCount, int errorCount) = 0;
 };
 
-class QuestionLayer : public cocos2d::CCLayer
+class QuestionLayer : public cocos2d::CCLayer, public FightPropLayerDelegate
 {
 public:
     QuestionLayer();
@@ -50,6 +51,7 @@ public:
     //
     void touchDownAction(CCObject *sender, CCControlEvent controlEvent);
 
+    virtual void useProp(int propIndex);
 private:
     QuestionType queType;
     int serialNo; //题目序号
@@ -80,6 +82,8 @@ public:
     void noticeDelegate(CCObject* object, void* param);
     //
     void displaySubViews();
+    
+    FightPropLayer* propLayer_;
 };
 
 #endif
