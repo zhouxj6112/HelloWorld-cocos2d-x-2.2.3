@@ -84,6 +84,8 @@ public:
     void displaySubViews();
     
     FightPropLayer* propLayer_;
+    void simulateAnswerRight();
+    void resetTimer();
 };
 
 #endif

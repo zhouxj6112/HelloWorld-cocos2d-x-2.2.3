@@ -50,8 +50,9 @@ bool QuestionLayer::init()
         return false;
     }
     
-    timerTotal = 10;
-    rightAnswer = errorAnswer = 0;
+    timerTotal = 12;
+    rightAnswer = 0;
+    errorAnswer = 0;
     rightLimit = 0;
     serialNo = 0;
     CCLOG("queType:%d", queType);
@@ -358,6 +359,8 @@ void QuestionLayer::noticeDelegate(cocos2d::CCObject *object, void *param)
         //
         this->resetNextQuestion();
     }
+    
+    CCLOG("%d %d", rightAnswer, errorAnswer);
 }
 
 void QuestionLayer::displaySubViews()
@@ -438,10 +441,66 @@ void QuestionLayer::onExit()
 void QuestionLayer::useProp(int propIndex)
 {
     if (propIndex == 0) {
+        number_in_group += 1;
         this->resetNextQuestion();
     } else if (propIndex == 1) {
-        //
-    } else {
-        //
+        this->simulateAnswerRight();
+    } else if (propIndex == 2) {
+        this->resetTimer();
     }
+}
+
+void QuestionLayer::simulateAnswerRight()
+{
+    this->unschedule(schedule_selector(QuestionLayer::timerCB));
+    
+    CCDictionary* results = questionObj->rightAnswer;
+    for (int i=0; i<results->allKeys()->count(); i++) {
+        CCString* key = (CCString *)(results->allKeys()->objectAtIndex(i));
+        results->setObject(CCString::createWithFormat("%d", 1), key->getCString());
+    }
+    
+    //回答完成所有正确答案
+    for (int i=0; i<results->allKeys()->count(); i++) {
+        CCString* key = (CCString *)(results->allKeys()->objectAtIndex(i));
+        CCControlButton* btn = (CCControlButton *)(this->getChildByTag(key->intValue()));
+        CCSprite* spr = CCSprite::create("star000.png");
+        spr->setAnchorPoint(ccp(0.5f, 0.5f));
+        spr->setPosition(ccp(btn->getContentSize().width/2, btn->getContentSize().height/2));
+        btn->addChild(spr);
+        CCBlink* blink = CCBlink::create(1.0f, 3);
+        if (i < results->allKeys()->count()-1) {
+            spr->runAction(blink);
+        } else {
+            CCAction* pAction = CCCallFuncND::create(this, callfuncND_selector(QuestionLayer::noticeDelegate), NULL);
+            spr->runAction(CCSequence::create(blink, pAction, NULL));
+        }
+    }
+    
+    rightAnswer++;
+    if (timerCount >= timerTotal*2/3) {
+        rightLimit += 1;
+        //播放快速答题音效
+        GameSoundManager::shareManager()->playAnswerCool();
+    } else {
+        //播放普通答题正确音效
+        GameSoundManager::shareManager()->playAnswerRight();
+    }
+    
+    isAnswerFinished = true;
+}
+
+void QuestionLayer::resetTimer()
+{
+    this->unschedule(schedule_selector(QuestionLayer::timerCB));
+    
+    int curTimer = timerCount;
+    timerCount = timerTotal;
+    timerLabel_->setString(CCString::createWithFormat("%d", timerCount)->getCString());
+    progressTimer->stopAllActions();
+    CCProgressFromTo* fromTo = CCProgressFromTo::create(0.1f, (curTimer)*1.0f/timerTotal*100, (timerCount)*1.0f/timerTotal*100);
+    progressTimer->runAction(fromTo);
+    
+    //开启答题倒计时功能
+    this->schedule(schedule_selector(QuestionLayer::timerCB), 1);
 }

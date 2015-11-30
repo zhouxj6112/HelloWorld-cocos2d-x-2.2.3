@@ -17,16 +17,19 @@ bool FightPropLayer::init()
         return false;
     }
     
-    CCMenuItemFont* pMenuItem1 = CCMenuItemFont::create("道具1 (更换题目)", this, menu_selector(FightPropLayer::menuDidSelected));
+    propArray = CCArray::createWithCapacity(2);
+    propArray->retain();
+    
+    CCMenuItemFont* pMenuItem1 = CCMenuItemFont::create("道具1-2个", this, menu_selector(FightPropLayer::menuDidSelected));
     pMenuItem1->setFontSizeObj(24);
     pMenuItem1->setColor(cocos2d::ccc3(0,255,255));
     pMenuItem1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/4, 30));
     pMenuItem1->setTag(1001);
-    CCMenuItemFont* pMenuItem2 = CCMenuItemFont::create("道具2 (正确答案)", this, menu_selector(FightPropLayer::menuDidSelected));
+    CCMenuItemFont* pMenuItem2 = CCMenuItemFont::create("道具2-2个", this, menu_selector(FightPropLayer::menuDidSelected));
     pMenuItem2->setFontSizeObj(24);
     pMenuItem2->setColor(cocos2d::ccc3(0,255,255));
     pMenuItem2->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/4*3, 30));
-    pMenuItem2->setTag(1002);
+    pMenuItem2->setTag(1003);
     // create menu, it's an autorelease object
     CCMenu* pMenu = CCMenu::create(pMenuItem1, pMenuItem2, NULL);
     pMenu->setPosition(CCPointZero);

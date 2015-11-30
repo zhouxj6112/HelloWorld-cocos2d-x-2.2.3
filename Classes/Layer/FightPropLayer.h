@@ -27,9 +27,17 @@ public:
     CREATE_FUNC(FightPropLayer);
     virtual bool init();
     void setDelegate(FightPropLayerDelegate* delegate);
+    CCArray* propArray;
 private:
     FightPropLayerDelegate* mDelegate;
     void menuDidSelected(CCObject* pSender);
+};
+
+struct PropItemData
+{
+    char* propName;
+    int propIndex;
+    char* propEffect;
 };
 
 #endif
