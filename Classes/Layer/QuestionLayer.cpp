@@ -123,6 +123,7 @@ void QuestionLayer::startAnswer()
         filePath = CCFileUtils::sharedFileUtils()->fullPathForFilename("question_3.plist").c_str();
     }
     CCArray* plistArray = CCArray::createWithContentsOfFile(filePath);
+    serialNo = CCRANDOM_0_1()*plistArray->count()-1;
     CCDictionary* dic = (CCDictionary*)plistArray->objectAtIndex(serialNo);
     CCString* qType = (CCString *)(dic->objectForKey("type")); //Number类型
     CCString* pStr = (CCString *)(dic->objectForKey("question"));
@@ -381,7 +382,7 @@ void QuestionLayer::displaySubViews()
         //3选1
         columns = 1;
         rows = 3;
-        spaceX = 50;
+        spaceX = 40;
     } else if (answer->count() <= 4) {
         //最多2x2个答案选项的
         columns = 2;
@@ -401,12 +402,12 @@ void QuestionLayer::displaySubViews()
     float spaceY = spaceX;
     
     //题目标题栏高度
-    float topHeight = 220;
+    float topHeight = 180;
     CCLOG("%f %f", this->getContentSize().width, this->getContentSize().height);
     //
     float totalWidth = this->getContentSize().width;
     float cellWidth = (totalWidth-spaceX*(columns+1))/columns;
-    float totalHeight = this->getContentSize().height-topHeight; //要减去答题头部区域
+    float totalHeight = this->getContentSize().height-topHeight-30; //要减去答题头部区域
     float cellHeight = (totalHeight-spaceY*(rows+1))/rows;
     CCLOG("[%d %d]:%f %f", columns, rows, cellWidth, cellHeight);
     while (cellHeight > cellWidth) {
@@ -438,14 +439,14 @@ void QuestionLayer::onExit()
     CCLayer::onExit();
 }
 
-void QuestionLayer::useProp(int propIndex)
+void QuestionLayer::useProp(PropItemData* itemData)
 {
-    if (propIndex == 0) {
+    if (itemData->propIndex == 1) {
         number_in_group += 1;
         this->resetNextQuestion();
-    } else if (propIndex == 1) {
+    } else if (itemData->propIndex == 2) {
         this->simulateAnswerRight();
-    } else if (propIndex == 2) {
+    } else if (itemData->propIndex == 3) {
         this->resetTimer();
     }
 }

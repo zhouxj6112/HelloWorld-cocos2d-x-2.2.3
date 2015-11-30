@@ -158,7 +158,7 @@ void FightScene::fightDidFinished(FightLayer* layer)
         questionlayer_->setDelegate(this);
         this->addChild(questionlayer_);
     } else {
-        questionlayer_ = QuestionLayer::create(MultiQuestion);
+        questionlayer_ = QuestionLayer::create(SingleQuestion);
         questionlayer_->setAnchorPoint( ccp(0.5, 0.5) );
         questionlayer_->setPosition( ccp(width/2, height/2) );
         questionlayer_->setContentSize( CCSizeMake(width, height) );

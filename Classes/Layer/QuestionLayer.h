@@ -51,7 +51,7 @@ public:
     //
     void touchDownAction(CCObject *sender, CCControlEvent controlEvent);
 
-    virtual void useProp(int propIndex);
+    virtual void useProp(PropItemData* itemData);
 private:
     QuestionType queType;
     int serialNo; //题目序号

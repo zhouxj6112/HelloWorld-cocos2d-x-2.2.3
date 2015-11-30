@@ -19,17 +19,37 @@ bool FightPropLayer::init()
     
     propArray = CCArray::createWithCapacity(2);
     propArray->retain();
+    {
+        PropItemData* itemData = new PropItemData();
+        itemData->propName = "道具1";
+        itemData->propIndex = 1;
+        itemData->propEffect = "跳过本道题目";
+        itemData->useCount = 2;
+        propArray->addObject(itemData);
+    }
+    {
+        PropItemData* itemData = new PropItemData();
+        itemData->propName = "道具2";
+        itemData->propIndex = 2;
+        itemData->propEffect = "选取正确答案";
+        itemData->useCount = 2;
+        propArray->addObject(itemData);
+    }
     
-    CCMenuItemFont* pMenuItem1 = CCMenuItemFont::create("道具1-2个", this, menu_selector(FightPropLayer::menuDidSelected));
+    PropItemData* itemData1 = (PropItemData *)propArray->objectAtIndex(0);
+    CCString* str1 = CCString::createWithFormat("%s-%d个", itemData1->propName, itemData1->useCount);
+    CCMenuItemFont* pMenuItem1 = CCMenuItemFont::create(str1->getCString(), this, menu_selector(FightPropLayer::menuDidSelected));
     pMenuItem1->setFontSizeObj(24);
     pMenuItem1->setColor(cocos2d::ccc3(0,255,255));
     pMenuItem1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/4, 30));
-    pMenuItem1->setTag(1001);
-    CCMenuItemFont* pMenuItem2 = CCMenuItemFont::create("道具2-2个", this, menu_selector(FightPropLayer::menuDidSelected));
+    pMenuItem1->setTag(itemData1->propIndex+1000);
+    PropItemData* itemData2 = (PropItemData *)propArray->objectAtIndex(1);
+    CCString* str2 = CCString::createWithFormat("%s-%d个", itemData2->propName, itemData2->useCount);
+    CCMenuItemFont* pMenuItem2 = CCMenuItemFont::create(str2->getCString(), this, menu_selector(FightPropLayer::menuDidSelected));
     pMenuItem2->setFontSizeObj(24);
     pMenuItem2->setColor(cocos2d::ccc3(0,255,255));
     pMenuItem2->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/4*3, 30));
-    pMenuItem2->setTag(1003);
+    pMenuItem2->setTag(itemData2->propIndex+1000);
     // create menu, it's an autorelease object
     CCMenu* pMenu = CCMenu::create(pMenuItem1, pMenuItem2, NULL);
     pMenu->setPosition(CCPointZero);
@@ -42,7 +62,14 @@ void FightPropLayer::menuDidSelected(CCObject* pSender)
 {
     CCMenuItem* menuItem = (CCMenuItem *)pSender;
     if (mDelegate) {
-        mDelegate->useProp(menuItem->getTag()-1001);
+        PropItemData* itemData = (PropItemData *)propArray->objectAtIndex(menuItem->getTag()-1001);
+        if (itemData->useCount > 0) {
+            mDelegate->useProp(itemData);
+        }
+        itemData->useCount -= 1;
+        if (itemData->useCount <= 0) {
+            menuItem->setEnabled(false);
+        }
     }
 }
 
