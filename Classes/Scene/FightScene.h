@@ -46,6 +46,9 @@ private:
     int errorCount_;
     bool _isWin;
     int answerCount; //回答次数
+    
+    cocos2d::CCArray* historySingleQuestiones;
+    cocos2d::CCArray* historyJudgeQuestiones;
 };
 
 #endif

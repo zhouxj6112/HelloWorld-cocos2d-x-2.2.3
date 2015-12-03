@@ -66,6 +66,8 @@ private:
     QuestionObj* questionObj;
     cocos2d::CCSprite* warnTipSpr;
     
+    cocos2d::CCArray* historyQuestiones;
+    
 public:
     bool isAnswerFinished;
     int rightAnswer;
@@ -86,6 +88,8 @@ public:
     FightPropLayer* propLayer_;
     void simulateAnswerRight();
     void resetTimer();
+    
+    void setQuestionHistory(CCArray* historyArray);
 };
 
 #endif

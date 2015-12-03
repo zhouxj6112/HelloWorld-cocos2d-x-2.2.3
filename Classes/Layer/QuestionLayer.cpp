@@ -123,7 +123,25 @@ void QuestionLayer::startAnswer()
         filePath = CCFileUtils::sharedFileUtils()->fullPathForFilename("question_3.plist").c_str();
     }
     CCArray* plistArray = CCArray::createWithContentsOfFile(filePath);
-    serialNo = CCRANDOM_0_1()*plistArray->count()-1;
+    //开始查找随机题目,并且不能重复
+    bool bFind = false;
+    while (!bFind) {
+        serialNo = arc4random()%plistArray->count(); //serialNo = CCRANDOM_0_1()*plistArray->count()-1;
+        CCLOG("serialNo:%d", serialNo);
+        bool isSame = false;
+        for (int i=0; i<historyQuestiones->count(); i++) {
+            CCInteger* integer = (CCInteger *)historyQuestiones->objectAtIndex(i);
+            if (integer->getValue() == serialNo) {
+                isSame = true;
+                break;
+            }
+        }
+        if (!isSame) {
+            bFind = true;
+        }
+    }
+    historyQuestiones->addObject(CCInteger::create(serialNo));
+    
     CCDictionary* dic = (CCDictionary*)plistArray->objectAtIndex(serialNo);
     CCString* qType = (CCString *)(dic->objectForKey("type")); //Number类型
     CCString* pStr = (CCString *)(dic->objectForKey("question"));
@@ -232,7 +250,7 @@ void QuestionLayer::displayActionTimerCB()
         }
         const char* cstr = questionString->m_sString.substr(0, displayLen).c_str();
         if (cstr != NULL) {
-            CCLOG("%s", cstr);
+//            CCLOG("%s", cstr);
             title->setString(cstr);
         } else {
             CCLOG("error:发生了bug");
@@ -504,4 +522,9 @@ void QuestionLayer::resetTimer()
     
     //开启答题倒计时功能
     this->schedule(schedule_selector(QuestionLayer::timerCB), 1);
+}
+
+void QuestionLayer::setQuestionHistory(CCArray* historyArray)
+{
+    historyQuestiones = historyArray;
 }

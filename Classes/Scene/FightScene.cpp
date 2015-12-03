@@ -79,6 +79,12 @@ bool FightScene::init()
 //    button2->setPreferredSize(CCSizeMake(96, 96));
 //    this->addChild(button2, 10, 2000);
     
+    historySingleQuestiones = CCArray::createWithCapacity(1);
+    historySingleQuestiones->retain();
+    questionlayer_->setQuestionHistory(historySingleQuestiones);
+    historyJudgeQuestiones = CCArray::createWithCapacity(1);
+    historyJudgeQuestiones->retain();
+    
     return true;
 }
 
@@ -119,6 +125,8 @@ void FightScene::onExit()
     pScheduler->setTimeScale(speed);
     
     GameSoundManager::shareManager()->stopPlayBackgroundMusic();
+    historyJudgeQuestiones->release();
+    historySingleQuestiones->release();
     
     CCLayer::onExit();
 }
@@ -157,6 +165,7 @@ void FightScene::fightDidFinished(FightLayer* layer)
         questionlayer_->setContentSize( CCSizeMake(width, height) );
         questionlayer_->setDelegate(this);
         this->addChild(questionlayer_);
+        questionlayer_->setQuestionHistory(historyJudgeQuestiones);
     } else {
         questionlayer_ = QuestionLayer::create(SingleQuestion);
         questionlayer_->setAnchorPoint( ccp(0.5, 0.5) );
@@ -164,6 +173,7 @@ void FightScene::fightDidFinished(FightLayer* layer)
         questionlayer_->setContentSize( CCSizeMake(width, height) );
         questionlayer_->setDelegate(this);
         this->addChild(questionlayer_);
+        questionlayer_->setQuestionHistory(historySingleQuestiones);
     }
 }
 

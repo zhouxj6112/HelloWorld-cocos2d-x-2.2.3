@@ -326,5 +326,32 @@
 			</dict>
 		</array>
 	</dict>
+	<dict>
+		<key>type</key>
+		<integer>1</integer>
+		<key>question</key>
+		<string>诗人李白是哪个朝代的？</string>
+		<key>answer</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>唐朝</string>
+				<key>right</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>宋朝</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>明朝</string>
+				<key>right</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
 </array>
 </plist>
