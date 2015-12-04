@@ -353,5 +353,32 @@
 			</dict>
 		</array>
 	</dict>
+	<dict>
+		<key>type</key>
+		<integer>1</integer>
+		<key>question</key>
+		<string>童话中匹诺曹的鼻子为什么会变长？</string>
+		<key>answer</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>尿床</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>饿肚子</string>
+				<key>right</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>撒谎</string>
+				<key>right</key>
+				<true/>
+			</dict>
+		</array>
+	</dict>
 </array>
 </plist>
