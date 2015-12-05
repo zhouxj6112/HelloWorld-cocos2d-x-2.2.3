@@ -420,12 +420,12 @@ void QuestionLayer::displaySubViews()
     float spaceY = spaceX;
     
     //题目标题栏高度
-    float topHeight = 180;
+    float topHeight = 190;
     CCLOG("%f %f", this->getContentSize().width, this->getContentSize().height);
     //
     float totalWidth = this->getContentSize().width;
     float cellWidth = (totalWidth-spaceX*(columns+1))/columns;
-    float totalHeight = this->getContentSize().height-topHeight-30; //要减去答题头部区域
+    float totalHeight = this->getContentSize().height-topHeight-40; //要减去答题头部区域
     float cellHeight = (totalHeight-spaceY*(rows+1))/rows;
     CCLOG("[%d %d]:%f %f", columns, rows, cellWidth, cellHeight);
     while (cellHeight > cellWidth) {

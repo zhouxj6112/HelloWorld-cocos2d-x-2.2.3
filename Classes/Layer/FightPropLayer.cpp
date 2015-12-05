@@ -41,14 +41,14 @@ bool FightPropLayer::init()
     CCMenuItemFont* pMenuItem1 = CCMenuItemFont::create(str1->getCString(), this, menu_selector(FightPropLayer::menuDidSelected));
     pMenuItem1->setFontSizeObj(24);
     pMenuItem1->setColor(cocos2d::ccc3(0,255,255));
-    pMenuItem1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/4, 30));
+    pMenuItem1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/4, 25));
     pMenuItem1->setTag(itemData1->propIndex+1000);
     PropItemData* itemData2 = (PropItemData *)propArray->objectAtIndex(1);
     CCString* str2 = CCString::createWithFormat("%s-%d个", itemData2->propName, itemData2->useCount);
     CCMenuItemFont* pMenuItem2 = CCMenuItemFont::create(str2->getCString(), this, menu_selector(FightPropLayer::menuDidSelected));
     pMenuItem2->setFontSizeObj(24);
     pMenuItem2->setColor(cocos2d::ccc3(0,255,255));
-    pMenuItem2->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/4*3, 30));
+    pMenuItem2->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/4*3, 25));
     pMenuItem2->setTag(itemData2->propIndex+1000);
     // create menu, it's an autorelease object
     CCMenu* pMenu = CCMenu::create(pMenuItem1, pMenuItem2, NULL);
