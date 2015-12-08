@@ -11,47 +11,80 @@
 #include "cocos-ext.h"
 USING_NS_CC_EXT;
 
+static CCArray* propArray = NULL;
+
 bool FightPropLayer::init()
 {
     if (!CCLayer::init()) {
         return false;
     }
     
-    propArray = CCArray::createWithCapacity(2);
-    propArray->retain();
-    {
-        PropItemData* itemData = new PropItemData();
-        itemData->propName = "道具1";
-        itemData->propIndex = 1;
-        itemData->propEffect = "跳过本道题目";
-        itemData->useCount = 2;
-        propArray->addObject(itemData);
+    if (propArray == NULL) {
+        propArray = CCArray::createWithCapacity(3);
+        propArray->retain();
+        {
+            PropItemData* itemData = new PropItemData();
+            itemData->propName = "道具1";
+            itemData->propIndex = 1;
+            itemData->propEffect = "跳过本道题目";
+            itemData->useCount = 2;
+            propArray->addObject(itemData);
+        }
+        {
+            PropItemData* itemData = new PropItemData();
+            itemData->propName = "道具2";
+            itemData->propIndex = 2;
+            itemData->propEffect = "选取正确答案";
+            itemData->useCount = 2;
+            propArray->addObject(itemData);
+        }
+        {
+            PropItemData* itemData = new PropItemData();
+            itemData->propName = "道具3";
+            itemData->propIndex = 3;
+            itemData->propEffect = "答题延时";
+            itemData->useCount = 2;
+            propArray->addObject(itemData);
+        }
     }
-    {
-        PropItemData* itemData = new PropItemData();
-        itemData->propName = "道具2";
-        itemData->propIndex = 2;
-        itemData->propEffect = "选取正确答案";
-        itemData->useCount = 2;
-        propArray->addObject(itemData);
+    
+    for (int i=0; i<propArray->count(); i++) {
+        PropItemData* data = (PropItemData *)(propArray->objectAtIndex(i));
+        CCLOG("遍历[%d]:%s %d 地址:%p", i, data->propName, data->useCount, data);
     }
     
     PropItemData* itemData1 = (PropItemData *)propArray->objectAtIndex(0);
-    CCString* str1 = CCString::createWithFormat("%s-%d个", itemData1->propName, itemData1->useCount);
+    CCString* str1 = CCString::createWithFormat("%s(%d个)", itemData1->propName, itemData1->useCount);
     CCMenuItemFont* pMenuItem1 = CCMenuItemFont::create(str1->getCString(), this, menu_selector(FightPropLayer::menuDidSelected));
     pMenuItem1->setFontSizeObj(24);
     pMenuItem1->setColor(cocos2d::ccc3(0,255,255));
-    pMenuItem1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/4, 25));
+    pMenuItem1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/6, 25));
     pMenuItem1->setTag(itemData1->propIndex+1000);
+    if (itemData1->useCount <= 0) {
+        pMenuItem1->setEnabled(false);
+    }
     PropItemData* itemData2 = (PropItemData *)propArray->objectAtIndex(1);
-    CCString* str2 = CCString::createWithFormat("%s-%d个", itemData2->propName, itemData2->useCount);
+    CCString* str2 = CCString::createWithFormat("%s(%d个)", itemData2->propName, itemData2->useCount);
     CCMenuItemFont* pMenuItem2 = CCMenuItemFont::create(str2->getCString(), this, menu_selector(FightPropLayer::menuDidSelected));
     pMenuItem2->setFontSizeObj(24);
     pMenuItem2->setColor(cocos2d::ccc3(0,255,255));
-    pMenuItem2->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/4*3, 25));
+    pMenuItem2->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/6*3, 25));
     pMenuItem2->setTag(itemData2->propIndex+1000);
+    if (itemData2->useCount <= 0) {
+        pMenuItem2->setEnabled(false);
+    }
+    PropItemData* itemData3 = (PropItemData *)propArray->objectAtIndex(2);
+    CCString* str3 = CCString::createWithFormat("%s(%d个)", itemData3->propName, itemData3->useCount);
+    CCMenuItemFont* pMenuItem3 = CCMenuItemFont::create(str3->getCString(), this, menu_selector(FightPropLayer::menuDidSelected));
+    pMenuItem3->setFontSizeObj(24);
+    pMenuItem3->setColor(cocos2d::ccc3(0,255,255));
+    pMenuItem3->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/6*5, 25));
+    pMenuItem3->setTag(itemData3->propIndex+1000);
+    if (itemData3->useCount <= 0) {
+        pMenuItem3->setEnabled(false);
+    }
     // create menu, it's an autorelease object
-    CCMenu* pMenu = CCMenu::create(pMenuItem1, pMenuItem2, NULL);
+    CCMenu* pMenu = CCMenu::create(pMenuItem1, pMenuItem2, pMenuItem3, NULL);
     pMenu->setPosition(CCPointZero);
     this->addChild(pMenu, 1);
     
@@ -60,13 +93,22 @@ bool FightPropLayer::init()
 
 void FightPropLayer::menuDidSelected(CCObject* pSender)
 {
-    CCMenuItem* menuItem = (CCMenuItem *)pSender;
+//    for (int i=0; i<propArray->count(); i++) {
+//        PropItemData* data = (PropItemData *)(propArray->objectAtIndex(i));
+//        CCLOG("遍历[%d]:%s %d 地址:%p", i, data->propName, data->useCount, data);
+//    }
+    
+    CCMenuItemFont* menuItem = (CCMenuItemFont *)pSender;
     if (mDelegate) {
         PropItemData* itemData = (PropItemData *)propArray->objectAtIndex(menuItem->getTag()-1001);
+
         if (itemData->useCount > 0) {
             mDelegate->useProp(itemData);
         }
         itemData->useCount -= 1;
+        menuItem->setString(CCString::createWithFormat("%s-%d个", itemData->propName, itemData->useCount)->getCString());
+        menuItem->setFontSizeObj(24);
+        
         if (itemData->useCount <= 0) {
             menuItem->setEnabled(false);
         }

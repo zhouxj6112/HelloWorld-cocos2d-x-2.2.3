@@ -212,7 +212,7 @@ void QuestionLayer::startAnswer()
     propLayer_ = FightPropLayer::create();
     propLayer_->setDelegate(this);
     propLayer_->setAnchorPoint( ccp(0.5, 0.5) );
-    propLayer_->setPosition( ccp(-size.width/2, -320) );
+    propLayer_->setPosition( ccp(-size.width/2, -330) );
     this->addChild(propLayer_, 100, 100);
 }
 
@@ -425,7 +425,7 @@ void QuestionLayer::displaySubViews()
     //
     float totalWidth = this->getContentSize().width;
     float cellWidth = (totalWidth-spaceX*(columns+1))/columns;
-    float totalHeight = this->getContentSize().height-topHeight-40; //要减去答题头部区域
+    float totalHeight = this->getContentSize().height-topHeight-50; //要减去答题头部区域
     float cellHeight = (totalHeight-spaceY*(rows+1))/rows;
     CCLOG("[%d %d]:%f %f", columns, rows, cellWidth, cellHeight);
     while (cellHeight > cellWidth) {
