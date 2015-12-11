@@ -109,9 +109,10 @@ void QuestionLayer::startAnswer()
     CCSize size = this->getContentSize();
     CCLOG("%f %f", size.width, size.height);
     
-    CCSprite* labelBg = CCSprite::create("bg_question.png");
+    CCScale9Sprite* labelBg = CCScale9Sprite::create("bg_question.png");
     labelBg->setAnchorPoint(ccp(0.5, 0.5));
     labelBg->setPosition(ccp(0, size.height/2-100));
+    labelBg->setContentSize(CCSizeMake(size.width, 160));
     this->addChild(labelBg, 0);
     
     const char* filePath = NULL;
@@ -212,7 +213,7 @@ void QuestionLayer::startAnswer()
     propLayer_ = FightPropLayer::create();
     propLayer_->setDelegate(this);
     propLayer_->setAnchorPoint( ccp(0.5, 0.5) );
-    propLayer_->setPosition( ccp(-size.width/2, -330) );
+    propLayer_->setPosition( ccp(-size.width/2, -size.height/2) );
     this->addChild(propLayer_, 100, 100);
 }
 
@@ -417,7 +418,7 @@ void QuestionLayer::displaySubViews()
         rows = (answer->count()*1.0f/columns)>(answer->count()/columns)?(answer->count()/columns+1):(answer->count()/columns);
         spaceX = 20;
     }
-    float spaceY = spaceX;
+    float spaceY = spaceX*(CCDirector::sharedDirector()->getWinSize().height/1334);
     
     //题目标题栏高度
     float topHeight = 190;

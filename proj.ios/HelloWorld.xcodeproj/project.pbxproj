@@ -3110,8 +3110,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: VIPSHOP US INC. (8USF88UFL4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: VIPSHOP US INC. (8USF88UFL4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 晓金 周 (DBWQY37875)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 晓金 周 (DBWQY37875)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -3127,7 +3127,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../../../CocosDenshion/include",
+					"\"$(SRCROOT)/../../../CocosDenshion/include\"",
 					"\"$(SRCROOT)/../../../external/chipmunk/include/constraints\"",
 					"\"$(SRCROOT)/../../../external/chipmunk/include/chipmunk\"",
 					"\"$(SRCROOT)/../../../extensions\"",
@@ -3147,8 +3147,8 @@
 				);
 				OTHER_CFLAGS = "-O2";
 				PRODUCT_NAME = HelloWorld;
-				PROVISIONING_PROFILE = "ef942c0f-cf26-4f64-8a81-67034ec6d315";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ef942c0f-cf26-4f64-8a81-67034ec6d315";
+				PROVISIONING_PROFILE = "891f9dc0-0de7-4dbb-859c-df9dff14b930";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "891f9dc0-0de7-4dbb-859c-df9dff14b930";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -3161,8 +3161,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: VIPSHOP US INC. (8USF88UFL4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: VIPSHOP US INC. (8USF88UFL4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 晓金 周 (DBWQY37875)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 晓金 周 (DBWQY37875)";
 				COPY_PHASE_STRIP = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -3176,7 +3176,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../../../CocosDenshion/include",
+					"\"$(SRCROOT)/../../../CocosDenshion/include\"",
 					"\"$(SRCROOT)/../../../external/chipmunk/include/constraints\"",
 					"\"$(SRCROOT)/../../../external/chipmunk/include/chipmunk\"",
 					"\"$(SRCROOT)/../../../extensions\"",
@@ -3195,8 +3195,8 @@
 					"\"$(SRCROOT)/../../../external/libwebsockets/ios/lib\"",
 				);
 				PRODUCT_NAME = HelloWorld;
-				PROVISIONING_PROFILE = "ef942c0f-cf26-4f64-8a81-67034ec6d315";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ef942c0f-cf26-4f64-8a81-67034ec6d315";
+				PROVISIONING_PROFILE = "891f9dc0-0de7-4dbb-859c-df9dff14b930";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "891f9dc0-0de7-4dbb-859c-df9dff14b930";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
