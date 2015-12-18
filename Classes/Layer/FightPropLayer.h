@@ -14,6 +14,8 @@ USING_NS_CC;
 
 class FightPropLayer;
 
+static CCArray* propArray = NULL;
+
 class PropItemData : public CCObject
 {
 public:
@@ -27,7 +29,7 @@ class CC_DLL FightPropLayerDelegate
 {
 public:
     //回调函数
-    virtual void useProp(PropItemData* itemData) = 0;
+    virtual bool useProp(PropItemData* itemData) = 0;
 };
 
 class FightPropLayer : public CCLayer

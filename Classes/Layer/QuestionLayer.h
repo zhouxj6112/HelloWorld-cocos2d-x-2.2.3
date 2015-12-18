@@ -51,7 +51,7 @@ public:
     //
     void touchDownAction(CCObject *sender, CCControlEvent controlEvent);
 
-    virtual void useProp(PropItemData* itemData);
+    virtual bool useProp(PropItemData* itemData);
 private:
     QuestionType queType;
     int serialNo; //题目序号
@@ -88,6 +88,7 @@ public:
     FightPropLayer* propLayer_;
     void simulateAnswerRight();
     void resetTimer();
+    void forceAttack();
     
     void setQuestionHistory(CCArray* historyArray);
 };

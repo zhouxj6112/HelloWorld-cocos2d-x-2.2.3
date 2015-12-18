@@ -188,6 +188,7 @@ void QuestionLayer::startAnswer()
     progressTimer->setAnchorPoint(ccp(0.5, 0.5));
     progressTimer->setPosition(ccp(0, size.height/2-200));
     progressTimer->setPercentage(100);
+    progressTimer->setContentSize(CCSizeMake(300, 38));
     this->addChild(progressTimer, 2);
     timerLabel_ = CCLabelTTF::create(CCString::createWithFormat("%d", timerCount)->getCString(), "Arial", 24);
     timerLabel_->setAnchorPoint(ccp(1, 0));
@@ -458,7 +459,7 @@ void QuestionLayer::onExit()
     CCLayer::onExit();
 }
 
-void QuestionLayer::useProp(PropItemData* itemData)
+bool QuestionLayer::useProp(PropItemData* itemData)
 {
     if (itemData->propIndex == 1) {
         number_in_group += 1;
@@ -467,7 +468,13 @@ void QuestionLayer::useProp(PropItemData* itemData)
         this->simulateAnswerRight();
     } else if (itemData->propIndex == 3) {
         this->resetTimer();
+    } else if (itemData->propIndex == 4) { //强行攻击
+        if (rightAnswer < 1) {
+            return false;
+        }
+        this->forceAttack();
     }
+    return true;
 }
 
 void QuestionLayer::simulateAnswerRight()
@@ -528,4 +535,23 @@ void QuestionLayer::resetTimer()
 void QuestionLayer::setQuestionHistory(CCArray* historyArray)
 {
     historyQuestiones = historyArray;
+}
+
+void QuestionLayer::forceAttack()
+{
+    this->unschedule(schedule_selector(QuestionLayer::displayActionTimerCB));
+    this->unschedule(schedule_selector(QuestionLayer::timerCB));
+    
+//    GameSoundManager::shareManager()->stopPlayBackgroundMusic();
+    
+    if (mDelegate) {
+        mDelegate->answerDelegateCB(this, rightAnswer+rightLimit, errorAnswer);
+    }
+    //显示结算界面
+    this->removeAllChildren();
+    CCString* str = CCString::createWithFormat("结算结果\n答对:%d 答错:%d\n速答%d题", rightAnswer, errorAnswer, rightLimit);
+    CCLabelTTF* label = CCLabelTTF::create(str->getCString(), "STHeitiK-Medium", 36);
+    this->addChild(label);
+    
+    CCLOG("%d %d", rightAnswer, errorAnswer);
 }

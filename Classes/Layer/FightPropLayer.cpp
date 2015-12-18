@@ -11,8 +11,6 @@
 #include "cocos-ext.h"
 USING_NS_CC_EXT;
 
-static CCArray* propArray = NULL;
-
 bool FightPropLayer::init()
 {
     if (!CCLayer::init()) {
@@ -38,11 +36,19 @@ bool FightPropLayer::init()
             itemData->useCount = 2;
             propArray->addObject(itemData);
         }
+//        {
+//            PropItemData* itemData = new PropItemData();
+//            itemData->propName = "道具3";
+//            itemData->propIndex = 3;
+//            itemData->propEffect = "答题延时";
+//            itemData->useCount = 2;
+//            propArray->addObject(itemData);
+//        }
         {
             PropItemData* itemData = new PropItemData();
-            itemData->propName = "道具3";
-            itemData->propIndex = 3;
-            itemData->propEffect = "答题延时";
+            itemData->propName = "道具4";
+            itemData->propIndex = 4;
+            itemData->propEffect = "强行攻击";
             itemData->useCount = 2;
             propArray->addObject(itemData);
         }
@@ -100,10 +106,19 @@ void FightPropLayer::menuDidSelected(CCObject* pSender)
     
     CCMenuItemFont* menuItem = (CCMenuItemFont *)pSender;
     if (mDelegate) {
-        PropItemData* itemData = (PropItemData *)propArray->objectAtIndex(menuItem->getTag()-1001);
-
+        PropItemData* itemData = NULL;
+        for (int i=0; i<propArray->count(); i++) {
+            PropItemData* pData = (PropItemData *)propArray->objectAtIndex(i);
+            if (pData->propIndex == menuItem->getTag()-1000) {
+                itemData = pData;
+                break;
+            }
+        }
         if (itemData->useCount > 0) {
-            mDelegate->useProp(itemData);
+            bool b = mDelegate->useProp(itemData);
+            if (!b) {
+                return;
+            }
         }
         itemData->useCount -= 1;
         menuItem->setString(CCString::createWithFormat("%s-%d个", itemData->propName, itemData->useCount)->getCString());

@@ -200,6 +200,9 @@ void FightScene::battleOver(FightLayer* layer, bool isWin)
     if (isWin) {
         GameSoundManager::shareManager()->playWinEffect();
     }
+    
+    propArray->release();
+    propArray = NULL;
 }
 
 void FightScene::fightOverCallback(CCObject *object, void *param)
